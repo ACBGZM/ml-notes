@@ -20,7 +20,8 @@ df[df.A > 0] = 0          # 改所有属性的值为 0
 print(df)
 
 # 添加属性
-df['E'] = np.nan
-# 值是 1, 2...6，按照日期的index附在后面
-df['F'] = pd.Series([1, 2, 3, 4, 5, 6], index=pd.date_range('20210224', periods=6))
+df['F'] = np.nan
+# 值是 1, 2...6，按照日期的index对齐，附在后面
+df['E'] = pd.Series([1, 2, 3, 4, 5, 6], index=pd.date_range('20210224', periods=6))
 print(df)
+

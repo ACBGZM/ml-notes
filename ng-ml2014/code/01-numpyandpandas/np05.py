@@ -25,7 +25,7 @@ print(A_2, A_2.shape)
 
 print('----concatenate合并----')
 # 另一种合并，可以指定合并的方向
-A = np.array([1, 1, 1])[:, np.newaxis]
+A = np.array([1, 1, 1])[:, np.newaxis]          # 用这种方法，把单个行向量的每个元素变成单独的
 B = np.array([2, 2, 2])[:, np.newaxis]
 print(A)
 print(B)
