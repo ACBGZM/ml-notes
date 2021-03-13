@@ -140,3 +140,17 @@ def costFunction(X, y, theta):
 
 
 
+
+
+## 多分类逻辑回归
+
+#### 1.矩阵相乘
+
+- 矩阵乘法，叉乘。向量的内积，高维矩阵的矩阵乘积。
+  - `np.dot(A, B)`
+  - `np.matmul(a, b)`
+  - `a @ b`
+- 数量积，点乘。对应元素相乘。
+  - `np.multiply(A, B)`
+  - `a * b`
+- 
