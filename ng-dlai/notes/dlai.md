@@ -747,7 +747,99 @@ $$check: \frac{||d\theta_{approx}-d\theta||_2}{||d\theta_{approx}||_2+||d\theta|
 - 如果梯度检验失败，检查哪一项的导数计算结果和估计值偏差很大，确定bug位置，比如在某一层的求导结果跟估计值差很大。
 - 记住包括正则化。
 - 梯度检验不能与dropout一起使用。dropout让我们难以计算 $J$ 。可以先把 keep_prob 设置为1，验证梯度下降是正确的；再开启dropout.
-- 几乎不会出现的情况：随机初始化 $w,b$ 接近0，梯度下降的实施是正确的
+- 几乎不会出现的情况：随机初始化 $w,b$ 接近0，梯度下降的实施是正确的，但在运行梯度下降时，$w,b$ 变大，可能只有在 $w,b$ 接近0时，梯度下降才是正确的，但 $w,b$ 变大时它变得越来越不准确。做法（基本不用）：在随机初始化过程中进行梯度检验，然后再训练网络，如果随机初始化值比较小，$w,b$ 会有一段时间远离0 ；反复训练网络之后再重新进行梯度检验。（开始做一下梯度检验，训练后再进行一次梯度检验，保证正确。）
+
+
+
+### 第二周：优化算法 (Optimization algorithms)
+
+#### 2.1 Mini-batch 梯度下降
+
+batch梯度下降：在整个数据集上进行梯度下降。
+
+mini-batch梯度下降：把整个数据集划分为若干个mini-batch，在每个mini-batch上进行一次梯度下降。
+
+
+
+实现过程：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\66.png' width="80%" height="80%"/>
+
+前向传播、求平均损失 --> 反向传播、梯度下降。在每个mini-batch中进行这样的操作。
+
+完整的遍历一次训练集称为 1 epoch。mini-batch可以在 1 epoch 中完成多次梯度下降。
+
+
+
+#### 2.2 理解Mini-batch 梯度下降
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\67.png' width="80%" height="80%"/>
+
+mini-batch会让梯度下降有噪声，但最终也会收敛到比较小的水平。
+
+
+
+mini-batch梯度下降的优势：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\68.png' width="80%" height="80%"/>
+
+- mini-batch size = m，即 batch 梯度下降：步长大，噪声少。单次迭代耗时长。
+
+- mini-batch size = 1，即 随机 梯度下降：步长小，噪声多，永远不收敛（在最小值附近波动。失去向量化方法带来的计算加速。
+
+- mini-batch梯度下降：既能对样本进行向量化，又能快速迭代。
+
+
+
+选择 mini-batch size 的注意事项：
+
+- 样本集小（<2000），直接用batch梯度下降。
+
+- 一般把 mini-batch size 设置为2的次方数。
+- 确保mini-batch内的数据 $(X^{\{t\}},Y^{\{t\}})$ 符合 CPU/GPU 的内存。
+
+- 这也是一个 hyperparameter ，需要多次尝试，找到让梯度下降最高效的取值。
+
+还有比梯度下降和mini-batch梯度下降都要高效得多的算法，在后面讲。
+
+
+
+#### 2.3 指数加权平均（Exponentially weighted averages）
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\69.png' width="80%" height="80%"/>
+
+在统计学中叫指数加权移动平均值。
+
+$$V_t = \beta V_{t-1} + (1-\beta) \theta_t$$ 
+
+$V_t$ 可以看作在 $\frac{1}{1-\beta}$ 天中，温度$\theta$ 的平均值。
+
+通过调整参数 $\beta$ ，获得不同的效果。
+
+- $\beta$ 大，平均的样本多，曲线平滑但有偏移。（图中绿色线是50天的平均值）
+- $\beta$ 小，平均的样本少，曲线更拟合，但噪声大。（图中黄色线是2天的平均值，红色线是10天的平均值）
+
+
+
+#### 2.4 理解指数加权平均
+
+把算式展开，是每天的温度×指数衰减系数的形式。
+
+有 $(1-\epsilon)^{\frac{1}{\epsilon}}\approx \frac{1}{e}$ ，在此时权重系数衰减的下降幅度很大。因此可以近似认为，
+
+
+
+#### 2.5 指数加权平均的偏差修正
+
+#### 2.6 momentum梯度下降
+
+#### 2.7 RMSprop—root mean square prop
+
+#### 2.8 Adam优化算法
+
+#### 2.9 学习率衰减（Learning rate decay）
+
+#### 2.10 局部最优问题
 
 
 
@@ -755,15 +847,37 @@ $$check: \frac{||d\theta_{approx}-d\theta||_2}{||d\theta_{approx}||_2+||d\theta|
 
 
 
+### 第三周：超参数调试，batch正则化和程序框架
 
+3.1 调试处理（Tuning process）
 
+3.2 为超参数选择和适合范围（Using an appropriate scale to pick hyperparameters）
 
+3.3 超参数训练的实践：Pandas vs. Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）
 
+3.4 网络中的正则化激活函数（Normalizing activations in a network）
 
+3.5 将 Batch Norm拟合进神经网络（Fitting Batch Norm into a neural network）
+
+3.6 为什么Batch Norm奏效？（Why does Batch Norm work?）
+
+3.7 测试时的Batch Norm（Batch Norm at test time）
+
+3.8 Softmax 回归（Softmax Regression）
+
+3.9 训练一个Softmax 分类器（Training a softmax classifier）
+
+3.10 深度学习框架（Deep learning frameworks）
+
+3.11 TensorFlow（TensorFlow）
 
 
 
 ## 第三课 结构化机器学习项目 (Structuring Machine Learning Projects)
+
+
+
+
 
 
 
