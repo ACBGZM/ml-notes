@@ -6,7 +6,7 @@
 
 学习的含义：找到特定的 $\omega$ 和 $b$ ，使代价函数最小化。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b1.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b1.png'  width="80%" height="80%"/>
 
 
 
@@ -22,11 +22,11 @@
 
 反向传播的链式法则
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b2.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b2.png'  width="80%" height="80%"/>
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b3.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b3.png'  width="80%" height="80%"/>
 
 
 
@@ -58,7 +58,7 @@
 
 神经网络可以当作一个函数。通过数据集计算从x到y的精准映射函数，然后对于新的数据x，给出预测的结果y。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\1.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\1.png'  width="80%" height="80%"/>
 
 
 
@@ -66,13 +66,13 @@
 
 监督学习：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\2.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\2.png' width="80%" height="80%"/>
 
 对于图片，使用CNN。对于序列信息（音频、语言信息等）使用RNN。
 
 结构化数据：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3.png' width="80%" height="80%"/>
 
 神经网络能帮助计算机理解无结构化数据。
 
@@ -82,7 +82,7 @@
 
 数据和计算规模的进展。现在获得了很大的数据量、计算了很复杂的网络。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\4.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\4.png' width="80%" height="80%"/>
 
 其他原因：算法的改进，比如从sigmoid函数到relu函数
 
@@ -100,11 +100,11 @@
 
 #### 2.1 二分类(Binary Classification)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\6.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\6.png' width="80%" height="80%"/>
 
 数据集按列组成矩阵：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\5.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\5.png' width="80%" height="80%"/>
 
 X.shape = (n<sub>x</sub>, m)
 
@@ -114,7 +114,7 @@ y.shape = (1, m)
 
 #### 2.2 逻辑回归(Logistic Regression)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\7.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\7.png' width="80%" height="80%"/>
 
 在神经网络中，将 $b$ 和 $w$ 分开表示，不采用逻辑回归那样组合成 $\theta$ 的形式。
 
@@ -122,13 +122,13 @@ y.shape = (1, m)
 
 #### 2.3 逻辑回归的代价函数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\8.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\8.png' width="80%" height="80%"/>
 
 
 
 #### 2.4 梯度下降（Gradient Descent）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\9.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\9.png' width="80%" height="80%"/>
 
 
 
@@ -140,7 +140,7 @@ y.shape = (1, m)
 
 计算图表示从左向右的计算过程。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\10.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\10.png' width="80%" height="80%"/>
 
 
 
@@ -148,7 +148,7 @@ y.shape = (1, m)
 
 根据计算图，从右到左计算函数 J 的导数。（链式求导）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\11.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\11.png' width="80%" height="80%"/>
 
 
 
@@ -156,13 +156,13 @@ y.shape = (1, m)
 
 用计算图理解逻辑回归的梯度下降。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\12.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\12.png' width="80%" height="80%"/>
 
 
 
 #### 2.10 梯度下降的例子
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\13.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\13.png' width="80%" height="80%"/>
 
 dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J、 dw<sub>1</sub>、 dw<sub>2</sub>、db 除以样本个数。
 
@@ -176,7 +176,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 #### 2.11 向量化(Vectorization)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\14.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\14.png' width="80%" height="80%"/>
 
 向量化是很有必要的。在上图1000000维向量相乘运算中，使用向量化比使用for循环节省300倍的时间。
 
@@ -184,7 +184,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 #### 2.12 更多的向量化例子
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\15.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\15.png' width="80%" height="80%"/>
 
 
 
@@ -192,7 +192,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 向量化逻辑回归的正向传播：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\16.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\16.png' width="80%" height="80%"/>
 
 Z = np.dot(w.T, X) + b
 
@@ -210,7 +210,7 @@ Z = np.dot(w.T, X) + b
 
 向量化逻辑回归的反向传播：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\17.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\17.png' width="80%" height="80%"/>
 
 dZ = A - Y
 
@@ -228,7 +228,7 @@ dw =  np.dot(X, dZ.T) / m
 
 一次梯度下降：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\18.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\18.png' width="80%" height="80%"/>
 
 
 
@@ -236,7 +236,7 @@ dw =  np.dot(X, dZ.T) / m
 
 #### 2.15 Python中的广播机制（Broadcasting in Python）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\19.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\19.png' width="80%" height="80%"/>
 
 
 
@@ -254,7 +254,7 @@ dw =  np.dot(X, dZ.T) / m
 
 也可以用 `assert` 或 `reshape` 修改为矩阵格式。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\20.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\20.png' width="80%" height="80%"/>
 
 
 
@@ -264,13 +264,13 @@ dw =  np.dot(X, dZ.T) / m
 
 #### 2.18* 逻辑回归损失函数详解
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\21.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\21.png' width="80%" height="80%"/>
 
 
 
 在整个数据集上的情况：假设样本是独立同分布，可以累乘，做最大似然估计使这个式子取最大值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\22.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\22.png' width="80%" height="80%"/>
 
 
 
@@ -282,7 +282,7 @@ dw =  np.dot(X, dZ.T) / m
 
 正向传播，计算损失函数 $L$ ；反向传播，计算梯度下降需要的 $dW$、$db$ 。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\23.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\23.png' width="80%" height="80%"/>
 
 
 
@@ -290,7 +290,7 @@ dw =  np.dot(X, dZ.T) / m
 
 $ a^{[i]}$ 表示第 $i$ 层的激活值，$a^{[0]}=X$
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\24.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\24.png' width="80%" height="80%"/>
 
 
 
@@ -298,15 +298,15 @@ $ a^{[i]}$ 表示第 $i$ 层的激活值，$a^{[0]}=X$
 
 向量化的前向传播
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\25.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\25.png' width="80%" height="80%"/>
 
 
 
 #### 3.4 多样本向量化
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\26.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\26.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\27.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\27.png' width="80%" height="80%"/>
 
 $X,Z,A$ 都是按列组合起来的矩阵。
 
@@ -320,9 +320,9 @@ $Z^{[1]}$ 的每一列都是一个训练样本 $X_i$ 经过 $W^{[1]}$ 计算而�
 
 把 $b$ 加上也一样，可能用到广播机制。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\28.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\28.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\29.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\29.png' width="80%" height="80%"/>
 
 
 
@@ -332,7 +332,7 @@ $Z^{[1]}$ 的每一列都是一个训练样本 $X_i$ 经过 $W^{[1]}$ 计算而�
 
 tanh和sigmoid函数的问题是：当x很大或很小，函数的梯度约为0，会拖慢梯度下降。因此在隐藏层用ReLU函数更好。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
 
 
 
@@ -340,13 +340,13 @@ tanh和sigmoid函数的问题是：当x很大或很小，函数的梯度约为0�
 
 如果不用非线性激活函数，神经网络的输出就是 $X$ 的线性组合。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\31.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\31.png' width="80%" height="80%"/>
 
 
 
 #### 3.8 激活函数的导数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
 
 Sigmoid：
 
@@ -376,7 +376,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 #### 3.9 神经网络的梯度下降
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\32.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\32.png' width="80%" height="80%"/>
 
 前向传播过程：
 
@@ -408,9 +408,9 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 想一想矩阵的维度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\33.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\33.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\34.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\34.png' width="80%" height="80%"/>
 
 
 
@@ -422,7 +422,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 如果 $W$ 的值太大，$z$ 会落在tanh函数和sigmoid函数平缓的部分，梯度下降会很慢。如果完全没有用到这两个函数就没有影响。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\35.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\35.png' width="80%" height="80%"/>
 
 训练浅层神经网络，0.01是可用的；当训练深层神经网络，要使用其他的常数，在之后讲。
 
@@ -434,7 +434,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 #### 4.1 深层神经网络
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\36.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\36.png' width="80%" height="80%"/>
 
 $L$：层数，从0开始计数。
 
@@ -446,7 +446,7 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 #### 4.2 前向传播
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\37.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\37.png' width="80%" height="80%"/>
 
 基本过程：
 
@@ -461,11 +461,11 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 #### 4.3 检查矩阵的维数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\38.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\38.png' width="80%" height="80%"/>
 
 同样本排列成一列（如 $(x_1,x_2)^T$、$(z_1,z_2)^T$），不同的样本m纵向组合起来（如 $(A[0],A[1])$、$(Z[1],Z[2])$）。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\39.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\39.png' width="80%" height="80%"/>
 
 在向量化的场合，python的broadcasting机制把 $b[1]$ 维度 $(n^{[1]},1)$ 扩展成 $(n^{[1]},m)$。
 
@@ -477,21 +477,21 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 在直觉层面理解，深层神经网络能组合从简单到复杂的信息。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\40.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\40.png' width="80%" height="80%"/>
 
 
 
 另一种直觉理解，从电路角度，用小规模但深层的电路结构，可以进行复杂的计算；但用浅层的电路模型，要用指数级增长的运算单元才能实现相同的功能。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\41.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\41.png' width="80%" height="80%"/>
 
 
 
 #### 4.5 搭建深层神经网络块
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\42.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\42.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\43.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\43.png' width="80%" height="80%"/>
 
 
 
@@ -499,11 +499,11 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 前向传播的实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\44.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\44.png' width="80%" height="80%"/>
 
 反向传播的实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\45.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\45.png' width="80%" height="80%"/>
 
 
 
@@ -518,7 +518,7 @@ Hyperparameters:
 
 尝试不同的超参数值，找到合适的值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\46.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\46.png' width="80%" height="80%"/>
 
 
 
@@ -526,7 +526,7 @@ Hyperparameters:
 
 目前对人脑的认识没有达到建立数学模型的程度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\47.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\47.png' width="80%" height="80%"/>
 
 
 
@@ -558,11 +558,11 @@ Hyperparameters:
 
 #### 1.2 偏差/方差（Bias /Variance）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\48.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\48.png' width="80%" height="80%"/>
 
 前提：基本error很低；验证集和测试集来自同一分布。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\49.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\49.png' width="80%" height="80%"/>
 
 训练集的error要跟基本error比，基本error通常是人工识别的error。
 
@@ -587,7 +587,7 @@ Hyperparameters:
 
 逻辑回归的正则化：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\50.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\50.png' width="80%" height="80%"/>
 
 如果用的是L1正则化，W最终会是稀疏的，也就是W向量中有很多0。
 
@@ -599,7 +599,7 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 神经网络的正则化：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\51.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\51.png' width="80%" height="80%"/>
 
 由于历史原因，不叫矩阵的L2正则化，而是叫 frobenius norm。
 
@@ -611,13 +611,13 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 从直观上理解，正则化项降低了 $W$ 的值，也就是降低了一些神经元的作用，简化了模型，让模型从过拟合向欠拟合发展。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\52.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\52.png' width="80%" height="80%"/>
 
 
 
 第二种直观理解方法：$W$ 值变小，$z$ 集中在激活函数的线性部分，则模型的每一层都相当于线性变换，模型不适用于复杂的决策，降低了过拟合程度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\53.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\53.png' width="80%" height="80%"/>
 
 如果实施了带正则化项的损失函数，当使用梯度下降法时，为了调试梯度下降，要使用这个新定义的损失函数，否则损失函数可能不会再所有的调幅范围内都单调递减。
 
@@ -627,11 +627,11 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 对每个训练样本，遍历神经网络的每一层，并设置消除神经网络中节点的概率，消除一些节点，得到一个更小规模的神经网络，训练这个精简后的网络。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\54.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\54.png' width="80%" height="80%"/>
 
  一种实现方法：inverted dropout（反向随机失活）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\55.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\55.png' width="80%" height="80%"/>
 
 用不等式给d赋值为true或false，跟a相乘让a的一部分值失效。
 
@@ -645,7 +645,7 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 直观上理解，dropout让神经元不依赖于某一个特征，而让权重更加分散。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\56.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\56.png' width="80%" height="80%"/>
 
 如果更担心在某些层有过拟合，就把某些层的keep-prob设置得低一些。缺点是在验证集上调参工作量增大。
 
@@ -661,13 +661,13 @@ dropout一大缺点就是代价函数 $J$ 不再被明确定义。每次迭代�
 
 data augment
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\57.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\57.png' width="80%" height="80%"/>
 
 
 
 early stopping
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\58.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\58.png' width="80%" height="80%"/>
 
 建立模型的两个过程：其一是让 $J(w, b)$ 取到最小值，手段包括梯度下降等；其二是防止过拟合，又称为orthogonalization，手段包括正则化等。early stopping 的缺点是破坏了这两个过程相互的独立性。提前结束训练过程，也就是打断了第一个过程。
 
@@ -679,13 +679,13 @@ early stopping
 
 第一步：零均值化；第二步：方差归一化。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\59.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\59.png' width="80%" height="80%"/>
 
 注意：在训练集和测试集上要用相同的 $\mu,\sigma$ 。
 
 这样做的原因：让优化变快。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\60.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\60.png' width="80%" height="80%"/>
 
 
 
@@ -693,7 +693,7 @@ early stopping
 
 activations以指数级增长或下降，给梯度下降造成困难。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\61.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\61.png' width="80%" height="80%"/>
 
 以图中简化 $b$ 、$w$ 全部是对角矩阵的神经网络为例：$w$ 比单位矩阵大一点，激活值以指数级增长；w 比单位矩阵小一点，激活值以指数级减小。
 
@@ -701,7 +701,7 @@ activations以指数级增长或下降，给梯度下降造成困难。
 
 #### 1.11 神经网络的权重初始化
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\62.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\62.png' width="80%" height="80%"/>
 
 通过给 $W$ 设置合理的初始值（不能比1大/小太多），避免梯度消失和梯度爆炸。
 
@@ -719,19 +719,19 @@ activations以指数级增长或下降，给梯度下降造成困难。
 
 用 $\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon}\approx g(\theta)$ 近似计算 $\theta$ 的梯度 $g(\theta)$。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\63.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\63.png' width="80%" height="80%"/>
 
 
 
 #### 1.13 梯度检验（Gradient checking）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\64.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\64.png' width="80%" height="80%"/>
 
 把所有层的$w,b$ 组合成矩阵 $\theta$，所有层的$dW,db$ 组合成矩阵 $d\theta$ 。我们需要验证：$d\theta$ 是 $\theta$ 的梯度。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\65.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\65.png' width="80%" height="80%"/>
 
 计算近似梯度：
 
@@ -745,7 +745,7 @@ $$check: \frac{||d\theta_{approx}-d\theta||_2}{||d\theta_{approx}||_2+||d\theta|
 
 #### 1.14 应用梯度检验的注意事项
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\65-add.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\65-add.png' width="80%" height="80%"/>
 
 - 不要在训练过程中使用梯度检验，只用于调试。
 - 如果梯度检验失败，检查哪一项的导数计算结果和估计值偏差很大，确定bug位置，比如在某一层的求导结果跟估计值差很大。
@@ -769,7 +769,7 @@ mini-batch梯度下降：把整个数据集划分为若干个mini-batch，在每
 
 实现过程：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\66.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\66.png' width="80%" height="80%"/>
 
 前向传播、求平均损失 --> 反向传播、梯度下降。在每个mini-batch中进行这样的操作。
 
@@ -779,7 +779,7 @@ mini-batch梯度下降：把整个数据集划分为若干个mini-batch，在每
 
 #### 2.2 理解Mini-batch 梯度下降
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\67.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\67.png' width="80%" height="80%"/>
 
 mini-batch会让梯度下降有噪声，但最终也会收敛到比较小的水平。
 
@@ -787,7 +787,7 @@ mini-batch会让梯度下降有噪声，但最终也会收敛到比较小的水�
 
 mini-batch梯度下降的优势：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\68.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\68.png' width="80%" height="80%"/>
 
 - mini-batch size = m，即 batch 梯度下降：步长大，噪声少。单次迭代耗时长。
 
@@ -812,7 +812,7 @@ mini-batch梯度下降的优势：
 
 #### 2.3 指数加权平均（Exponentially weighted averages）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\69.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\69.png' width="80%" height="80%"/>
 
 在统计学中叫指数加权移动平均值。
 
@@ -829,7 +829,7 @@ $V_t$ 可以看作在 $\frac{1}{1-\beta}$ 天中，温度$\theta$ 的平均值�
 
 #### 2.4 理解指数加权平均
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\70.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\70.png' width="80%" height="80%"/>
 
 把算式展开，是sum(每天的温度×指数衰减系数)的形式。（右上方两个图中对应值相乘）
 
@@ -843,7 +843,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\71.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\71.png' width="80%" height="80%"/>
 
 在实现上，只需要存储单个变量 $V$ 并且不断更新即可。$V$ 近似了平均值，省去了使用滑动窗口求和求精确平均值所需的存储空间。
 
@@ -853,7 +853,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 #### 2.5 指数加权平均的偏差修正（Bias correction in exponentially weighted average）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\72.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\72.png' width="80%" height="80%"/>
 
 以 $\beta=0.98$ 为例，在实际实现上，会得到紫线而不是绿线。以为初始化 $V=0$ ，前几项会很小。（见左下算式）
 
@@ -867,7 +867,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 计算梯度的指数加权平均数，加速梯度下降。这个方法好于普通梯度下降。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\73.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\73.png' width="80%" height="80%"/>
 
 梯度下降的波动，要求我们不能用很大的学习率。在纵轴上，我们希望学习慢一点；在横轴上，希望学习快一点。
 
@@ -879,7 +879,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\74.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\74.png' width="80%" height="80%"/>
 
 $\beta$ 的常用值是 0.9，即平均前十次迭代的梯度。同时也可以不使用偏差修正 $\frac{V_t}{1-\beta^t}$ ，因为10次后已经可以正常近似了。
 
@@ -891,7 +891,7 @@ $\beta$ 的常用值是 0.9，即平均前十次迭代的梯度。同时也可�
 
 另一种消除梯度下降的摆动，加快梯度下降的方法。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\75.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\75.png' width="80%" height="80%"/>
 
 当在某个方向波动大（如图中举例 $db$ ，在梯度下降减去一个分母较大的数 $b:= b-\alpha \frac{db}{\sqrt{db}}$，让梯度下降的幅度减小。在某个方向梯度下降幅度小（如图中举例 $dw$ ，在梯度下降减去一个较小的数 $w:= w-\alpha \frac{dw}{\sqrt{dw}}$，让梯度下降的幅度增大。
 
@@ -911,13 +911,13 @@ RMSprop：$w = w - \alpha \frac{dw}{\sqrt{S_{dw}+\epsilon}}$
 
 Adam：$w = w - \alpha \frac{V_{dw}}{\sqrt{S_{dw}+\epsilon}}$ 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\76.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\76.png' width="80%" height="80%"/>
 
 
 
 几个超参数，当应用adam算法时，$\beta_1,\beta_2,\epsilon$ 常常都是用缺省值，$\alpha$ 需要实验确定。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\77.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\77.png' width="80%" height="80%"/>
 
 
 
@@ -925,7 +925,7 @@ Adam：$w = w - \alpha \frac{V_{dw}}{\sqrt{S_{dw}+\epsilon}}$
 
 随时间慢慢减小学习率。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\78.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\78.png' width="80%" height="80%"/>
 
 一种方法：
 
@@ -933,13 +933,13 @@ $$\alpha = \frac{1}{1+decay\_rate \times epoch\_num}\alpha_{init}$$
 
 decay\_rate 是需要调整的超参数。 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\79.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\79.png' width="80%" height="80%"/>
 
 
 
 其他几种方法：指数衰减、除以epoch_num的开方、离散衰减等。也有看着模型训练过程，然后手动进行衰减的方法。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\80.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\80.png' width="80%" height="80%"/>
 
 
 
@@ -947,11 +947,11 @@ decay\_rate 是需要调整的超参数。
 
 在维数很高的情况下，更多的情况是收敛到鞍形部位（鞍点，图右方），而不是局部最优点（图左方）。在鞍点，一些方向的曲线向下弯曲，一些方向的曲线向上弯曲。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\81.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\81.png' width="80%" height="80%"/>
 
 在鞍上称为plateaus问题，这段时间训练得比较慢，使用momentum等算法可以加速此过程。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\82.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\82.png' width="80%" height="80%"/>
 
 
 
@@ -959,13 +959,74 @@ decay\_rate 是需要调整的超参数。
 
 ### 第三周：超参数调试，batch正则化和程序框架
 
-#### 3.1 调试处理
+#### 3.1 调参规则
 
-#### 3.2 为超参数选择和适合范围
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\83.png' width="80%" height="80%"/>
+
+调参重要性排序：红 > 黄 > 紫。
+
+
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\84.png' width="80%" height="80%"/>
+
+在深度学习中，不要用网格取值进行实验（图左）。
+
+应该随机取超参数的值并进行实验（图右）。因为不知道哪个超参数是更重要的，需要探究重要的超参数的更多潜在值。
+
+
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\85.png' width="80%" height="80%"/>
+
+使用从粗略到精细（coarse to fine）的策略。在表现好的区域上进行更密集的取值尝试
+
+
+
+#### 3.2 合适的参数取值范围
+
+有些超参数，可以在合理的范围内，在**线性轴**上，做随机均匀取值。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\86.png' width="80%" height="80%"/>
+
+
+
+学习率等超参数，更合适的方法是在**对数轴**上均匀随机取值。
+
+```python
+r = -4 * np.random.randn()
+alpha = exp(10, r)
+```
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\87.png' width="80%" height="80%"/>
+
+
+
+
+
+在 $1-\beta$ 取值，而不是在 $\beta$ 取值。因为在 $\beta$ 越接近 1，平均的样本个数有更大的变化，需要更密集的取值。所以在 $1-\beta$ 接近 0 时进行更密集的取值。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\88.png' width="80%" height="80%"/>
+
+
 
 #### 3.3 超参数训练的实践：Pandas vs. Caviar
 
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\89.png' width="80%" height="80%"/>
+
+在不同领域的参数设置可能有相似的部分，多了解其他工作；多进行尝试。
+
+
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\90.png' width="80%" height="80%"/>
+
+一种方法：在训练中照看（babysitting）模型，比如进行学习率的调整。
+
+另一种方法：同时训练超参数取值不同的多个模型。
+
+
+
 #### 3.4 网络中的正则化激活函数
+
+
 
 #### 3.5 将 Batch Norm拟合进神经网络
 
