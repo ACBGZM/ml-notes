@@ -1183,7 +1183,23 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 #### 3.10 深度学习框架
 
+现存的框架；选择框架的标准。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\105.png' width="80%" height="80%"/>
+
+
+
 #### 3.11 TensorFlow
+
+在tensorflow中定义损失函数cost，可以理解为tensorflow会建立起一个计算图，来自动完成后续的反向传播。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\106.png' width="80%" height="80%"/>
+
+在框架中，可以只用一行代码修改很多工作，比如训练的方法是梯度下降还是Adam。这支持我们快速实现复杂的神经网络模型。
+
+
+
+
 
 
 
@@ -1213,7 +1229,155 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 ## 第四课 卷积神经网络（Convolutional Neural Networks）
 
+### 第一周 卷积神经网络(Foundations of Convolutional Neural Networks)
 
+#### 1.1 计算机视觉（Computer vision）
+
+计算机视觉的应用：图片分类，目标检测，风格迁移等。
+
+计算机视觉的一个问题是数据量非常大。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\107.png' width="80%" height="80%"/>
+
+
+
+#### 1.2 卷积运算-边缘检测为例（Edge detection）
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\108.png' width="80%" height="80%"/>
+
+在神经网络隐藏层中，不同层识别不同的信息。比如，浅层识别物体的边缘，深层识别人脸的部位，更深层识别整个人脸。以边缘检测为例，展示卷积计算的过程。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\109.png' width="80%" height="80%"/>
+
+以中间矩阵的区域，在左边矩阵的每个对应区域，进行对应元素相乘，然后加起来，作为右边矩阵的一个值。
+
+左边的矩阵理解为图片；中间的矩阵是过滤器（filter）或卷积核（kernel）；右边的矩阵可以理解为另一张图片。$*$ 是数学上的卷积运算符，但在python中， $*$ 也被重载做很多场合的乘法运算，所以在编程中使用其他函数，比如tensorflow中是 `tf.nn.conv2d`。
+
+这也是纵向边缘的计算过程：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\110.png' width="80%" height="80%"/>
+
+越大的值理解为颜色越浅。本例计算出的边界比较宽，是因为原图片相对来说非常小。
+
+
+
+#### 1.3 更多边缘检测内容
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\111.png' width="80%" height="80%"/>
+
+如何区分从亮到暗&从暗到亮这两种变化？
+
+
+
+#### 1.4 Padding
+
+#### 1.5 卷积步长（Strided convolutions）
+
+#### 1.6 三维卷积（Convolutions over volumes）
+
+#### 1.7 单层卷积网络（One layer of a convolutional network）
+
+#### 1.8 简单卷积网络示例（A simple convolution network example）
+
+#### 1.9 池化层（Pooling layers）
+
+#### 1.10 卷积神经网络示例（Convolutional neural network example）
+
+#### 1.11 为什么使用卷积？（Why convolutions?）
+
+
+
+
+
+
+
+### 第二周 深度卷积网络：实例探究(Deep convolutional models: case studies)
+
+#### 2.1 为什么要进行实例探究？（Why look at case studies?）
+
+#### 2.2 经典网络（Classic networks）
+
+#### 2.3 残差网络（Residual Networks (ResNets)）
+
+#### 2.4 残差网络为什么有用？（Why ResNets work?）
+
+#### 2.5 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）
+
+#### 2.6 谷歌 Inception 网络简介（Inception network motivation）
+
+#### 2.7 Inception 网络（Inception network）
+
+#### 2.8 使用开源的实现方案（Using open-source implementations）
+
+#### 2.9 迁移学习（Transfer Learning）
+
+#### 2.10 数据扩充（Data augmentation）
+
+#### 2.11 计算机视觉现状（The state of computer vision）
+
+
+
+
+
+
+
+
+
+### 第三周 目标检测（Object detection）
+
+#### 3.1 目标定位（Object localization）
+
+#### 3.2 特征点检测（Landmark detection）
+
+#### 3.3 目标检测（Object detection）
+
+#### 3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）
+
+#### 3.5 Bounding Box预测（Bounding box predictions）
+
+#### 3.6 交并比（Intersection over union）
+
+#### 3.7 非极大值抑制（Non-max suppression）
+
+#### 3.8 Anchor Boxes
+
+#### 3.9 YOLO 算法（Putting it together: YOLO algorithm）
+
+#### 3.10 候选区域（选修）（Region proposals (Optional)）
+
+
+
+
+
+
+
+
+
+### 第四周 特殊应用：人脸识别和神经风格转换
+
+#### 4.1 什么是人脸识别？(What is face recognition?)
+
+#### 4.2 One-Shot学习（One-shot learning）
+
+#### 4.3 Siamese 网络（Siamese network）
+
+#### 4.4 Triplet 损失（Triplet 损失）
+
+#### 4.5 面部验证与二分类（Face verification and binary classification）
+
+#### 4.6 什么是神经风格转换？（What is neural style transfer?）
+
+#### 4.7 什么是深度卷积网络？（What are deep ConvNets learning?）
+
+#### 4.8 代价函数（Cost function）
+
+#### 4.9 内容代价函数（Content cost function）
+
+#### 4.10 风格代价函数（Style cost function）
+
+#### 4.11 一维到三维推广（1D and 3D generalizations of models）
 
 
 
@@ -1236,8 +1400,6 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 
 
-
-### 
 
 
 
