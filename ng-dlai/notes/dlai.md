@@ -963,7 +963,7 @@ decay\_rate 是需要调整的超参数。
 
 #### 3.1 调参规则
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\83.png' width="80%" height="80%"/>
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\83.png' width="50%" height="50%"/>
 
 调参重要性排序：红 > 黄 > 紫。
 
@@ -1036,7 +1036,7 @@ batch normalization 会使参数搜索问题变得很容易，使神经网络对
 
 对逻辑回归、神经网络的输入归一化而言，进行输入特征值的归一化是有效的。如图的上半部分，对 $x_1,x_2,x_3$ 进行归一化对 $w,b$ 的训练有帮助。
 
-对深层的模型，能否对 $a^{[i]}$ 进行归一化，改进 $w^{[i+1]},b^{[i+1]}$ 的训练？
+同样的思想：对深层的模型，能否对 $a^{[i]}$ 进行归一化，改进 $w^{[i+1]},b^{[i+1]}$ 的训练？
 
 在实践中，我们不对 $a^{[i]}$ 做归一化，而是对 $z^{[i]}$ 做归一化。这一点一直有争论。
 
@@ -1053,7 +1053,7 @@ $$\widetilde{z}^{(i)} = \gamma z_{norm}^{(i)} + \beta$$
 - $\gamma,\beta$ 是可以学习的参数（不是超参数）。如果 $\gamma=\sqrt{\sigma^2+\epsilon},\beta=\mu$，则 $\widetilde{z}^{(i)} = {z}^{(i)}$，batch normalization不起作用。 $\gamma$ 控制方差，$\beta$ 值控制均值。通过给它们赋值，可以构造含平均值和方差的隐藏单元值。
 
 - 用  $\widetilde{z}^{(i)}$ 取代 ${z}^{(i)}$ ，参与神经网络的后续计算。
-- 不一定要归一化到均值0的分布。可以归一化到均值不是0，方差大一点，符合sigmoid等激活函数的特性。
+- 不一定非要归一化成均值为0的分布。可以归一化到均值不是0，方差大一点，符合sigmoid等激活函数的特性。
 
 - batch normalization本质上是让隐藏单元值的均值和方差标准化，即 $z^{[i]}$ 有固定的均值和方差，由 $\gamma,\beta$ 两个参数控制。
 
@@ -1231,6 +1231,8 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 ### 第一周 卷积神经网络(Foundations of Convolutional Neural Networks)
 
+卷积运算（padding、stride）和不同的卷积核；将卷积核叠加的三维卷积和单层卷积网络；卷积神经网络（CONV、POOL、FN）。
+
 #### 1.1 计算机视觉（Computer vision）
 
 计算机视觉的应用：图片分类，目标检测，风格迁移等。
@@ -1267,27 +1269,283 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 <img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\111.png' width="80%" height="80%"/>
 
-如何区分从亮到暗&从暗到亮这两种变化？
+使用相同的filter，可以在输出图像中区分源图像从亮到暗&从暗到亮这两种变化。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\112.png' width="80%" height="80%"/>
+
+不同的filter可以帮助我们找到垂直或水平的边缘。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\113.png' width="80%" height="80%"/>
+
+也有相关工作提出更robust的filter取值，同时也可以不手动定义filter，而把这些数字当成参数，通过反向传播学习更好的filter（之后的内容）。
+
+通过合理设置filter，不仅能检查水平、垂直的边缘，也可以检测任何角度的边缘。
+
+通过把filter的所有数字设置成参数，并让计算机自动学习它们，我们发现：神经网络可以学习一些低级的特征，比如图片的边缘特征。构成这些运算的基础依然是卷积运算（convolution），使得反向传播算法可以学习任何所需的3×3 filter，并在整张图片上应用它。
 
 
 
 #### 1.4 Padding
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\114.png' width="80%" height="80%"/>
+
+使用 $f\times f$ 的卷积核，卷积 $n\times n$ 的源图像，得到 $(n-f+1)\times(n-f+1)$ 的新图象。
+
+卷积的两个缺点：
+
+- 卷积会让图片尺寸缩小。可能做几次之后图像就变得很小了。
+- 边缘的像素参与的卷积运算很少，中间的像素用得很多。意味着卷积丢失了图像边缘的信息。
+
+通过padding解决这两个问题：在图像周围再添加 $p$ 圈像素。
+
+使用 $f\times f$ 的卷积核，卷积 $(n+p)\times (n+p)$ 的源图像，得到 $(n+2p-f+1)\times(n+2p-f+1)$ 的新图象。
+
+如图 $p=1$：
+
+- $8\times 8$ 的新图象经过卷积，得到 $6\times 6$ 的图像，尺寸没有变小。
+- 边缘的像素参与的卷积运算更多了。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\115.png' width="80%" height="80%"/>
+
+ 关于padding多少：
+
+- Valid convolution：不padding。 $(n\times n) * (f\times f) \longrightarrow (n-f+1)\times(n-f+1)$
+- Same convolution：padding后得到的输出图像尺寸是源图像尺寸。 $(n\times n) * (f\times f) \longrightarrow n\times n$，$p=\frac{f-1}{2}$
+
+在计算机视觉问题中，$f$ 一般是奇数。
+
+
+
 #### 1.5 卷积步长（Strided convolutions）
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\116.png' width="80%" height="80%"/>
+
+padding p，stride s：
+
+$$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)\times(\lfloor \frac{n+2p-f}{2} +1\rfloor)$$
+
+惯例：不是整数就向下取整，超出边缘的卷积不进行计算。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\117.png' width="80%" height="80%"/>
+
+数学中的convolution还要进行反转filter的操作，在机器学习中则不进行。机器学习的运算在数学中被称为cross-correlation，但在论文中我们延续convolution这一说法，要注意与数学环境中的convolution做区分。
+
+
 
 #### 1.6 三维卷积（Convolutions over volumes）
 
-#### 1.7 单层卷积网络（One layer of a convolutional network）
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\118.png' width="80%" height="80%"/>
 
-#### 1.8 简单卷积网络示例（A simple convolution network example）
+源图像和filter的channel数量必须相同。最终得到一个二维输出。
+
+将27个数对应相乘再求和，得到输出图像上的一个数。
+
+通过不同的filter的参数选择，获得不同的特征检测器。如图，可以构建只关心红色通道的纵向边缘的filter；也可以构建不关心任何颜色，只关心纵向边缘的filter。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\119.png' width="80%" height="80%"/>
+
+也可以使用多个filter。如图，将纵向边缘filter、横向边缘filter卷积而来的两张图片结合起来，得到 $4\times 4\times 2$ 的新图像。这种思想使我们可以检测很多个不同的特征，并且输出的通道数等于要检测的特征数，即filter的个数。
+
+
+
+#### 1.7 单层卷积网络
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\120.png' width="80%" height="80%"/>
+
+单层卷积网络的前向传播：
+
+- 卷积运算。对应 $w^{[1]}a^{[0]}$。$w^{[1]}$是filter，$a^{[0]}$是源图像。
+
+- 对得到的 $4\times 4$ 矩阵加一个权值（使用 broadcasting）。对应 $z^{[1]} = w^{[1]}a^{[0]} + b^{[1]}$。
+- 进行非线性函数处理，如 ReLU，得到新的  $4\times 4$ 矩阵。对应 $a^{[1]} = g(z^{[1]})$ 。
+- 多个filter，计算结果叠加起来，得到  $4\times 4 \times \#filters$ 矩阵
+
+
+
+参数数量：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\121.png' width="80%" height="80%"/>
+
+不管输入图片的尺寸有多大，参数的个数只跟filter有关。这是卷积神经网络的一个特性，可以避免过拟合。
+
+
+
+符号总结：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\122.png' width="80%" height="80%"/>
+
+每层输出图像的尺寸：
+
+- $n_H^{[l]} = \lfloor \frac{n_H^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}} +1 \rfloor  $ 
+
+- $n_W^{[l]} = \lfloor \frac{n_W^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}} +1 \rfloor $ 
+
+每个filter的尺寸需要匹配上层输出图像的channel数量：
+
+- $f^{[l]} \times f^{[l]} \times n_c^{[l-1]}$ 
+
+所有的filter：
+
+- $f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}$
+
+本层图像经过bias和非线性函数得到的activation尺寸：
+
+- $a^{[l]}:n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}$ 
+
+一个mini-batch的所有activations：
+
+- $A^{[l]}:m \times n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}$ 
+
+也不是所有人都用这一套标记法，有些人把channel的数量写在前面。
+
+
+
+#### 1.8 简单的卷积神经网络示例
+
+预测 $39\times 39 \times 3$ 的图像上是否有一只猫，设计以下卷积神经网络：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\123.png' width="80%" height="80%"/>
+
+经过几步卷积后，获得 $7\times 7 \times 40$ 的特征图，将它们展开成 1960 长度的列向量，进行logistic或softmax回归，预测图片中是否有猫。
+
+在卷积的过程中，有这样的趋势：图像的大小在减少，通道数量在增多。
+
+
+
+选择超参数是一个问题，$f,s,p,\#filters$ 等。在之后的课程中会提供一些建议和指导。
+
+
+
+卷积神经网络通常由三种layer组成：
+
+- Convolution，卷积层，CONV
+- Pooling，池化层，POOL
+- Fully connectied，全连接层，FC
+
+
 
 #### 1.9 池化层（Pooling layers）
 
+使用池化层，来缩减模型的大小，提高计算速度，同时让所提取的特征robust。
+
+
+
+max pooling：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\124.png' width="80%" height="80%"/>
+
+- max pooling对每一个通道独立处理，不改变通道个数。
+
+- 有两个超参数 $f,s$ ，不需要网络学习，手动设置后就不再改变。
+
+- 可以直觉理解为：数字大意味着可能提取了某些特定特征。
+
+
+
+average pooling：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\125.png' width="80%" height="80%"/>
+
+跟max pooling差不多。
+
+通常，max pooling更加常用；但有时，在很深的神经网络也会用到average pooling。（有时用，在下周讲）
+
+
+
+池化层的超参数：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\126.png' width="80%" height="80%"/>
+
+- 有常用的设置 $f=2,s=2$ ，意味着把图片长宽都缩小一半。
+- 可以自己增加padding参数 $p$，但极少这样做。（有意外，在下周讲）
+
+- $n_H \times n_W \times n_c \longrightarrow \lfloor \frac{n_H-f}{s}+1 \rfloor \times \lfloor \frac{n_H-f}{s}+1 \rfloor \times n_c$ ，**池化层不改变通道的个数**。
+- **池化层没有需要训练的参数，只有超参数**。
+
+
+
 #### 1.10 卷积神经网络示例（Convolutional neural network example）
+
+手写数字识别（跟 LeNet-5 相似）：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\127.png' width="80%" height="80%"/>
+
+有一种叫法是把 CONV+POOL 作为一层卷积，因为 POOL 层没有权重，只有超参数。在本例中同样将 CONV1+POOL1 作为 layer 1。
+
+全连接层相当于单层普通神经网络，神经元全部相连，每条边有一个权值。
+
+- 第一层：卷积+最大池化。参数是6个filters。
+
+- 第二层：卷积+最大池化。参数是16个filters。
+- 第三层：flatten后，400到120的全连接。参数是 $w,b$。
+- 第四层：120到84的全连接。参数是 $w,b$。
+- 输出：对84个神经元进行 softmax ，预测手写数字。
+
+常见的模式：
+
+- 图像尺寸逐渐变小，通道数量逐渐增多。
+- 一个或多个卷积层后接一个池化层，重复几次，最后是几个全连接层，最终进行softmax等函数输出。
+
+
+
+常规做法：尽量不要自己设置超参数，而是查看文献，使用别人在任务中效果很好的架构。（下周细讲）
+
+
+
+卷积神经网络的一些细节：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\128.png' width="80%" height="80%"/>
+
+- 参数
+  - 池化层没有任何参数。
+  - 卷积层参数数量较小，这点在之前提过。只跟filter有关，跟图片的尺寸无关。
+    - 416 = 16channel * (5*5filter + 1bias)，每个filter有一个偏置。
+  - 大多数参数存在于全连接层。
+    - 48001 = 120 * 400 + 1bias，每层一个偏置，可以类比普通的神经网络。
+- 激活值
+  - 随着神经网络加深，激活值会逐渐变小。如果激活值下降太快，也会影响神经网络的表现。
+
+
+
+卷积神经网络的重点是如何更好地组织卷积层、池化层、全连接层。这要求我们多阅读论文，了解别人的模型，得到自己的insight/intuation。下周将介绍一些表现良好的模型。
+
+
 
 #### 1.11 为什么使用卷积？（Why convolutions?）
 
+卷积神经网络为何有效？如何整合这些卷积？如何通过标注过的训练集进行卷积神经网络的训练？
 
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\129.png' width="80%" height="80%"/>
+
+卷积神经网络相比只有全连接的普通神经网络的优势：参数共享和稀疏连接。
+
+- 参数共享：filter的参数可以用于图片的任何区域，来提取特征。
+
+- 稀疏链接：输出图像的每个像素仅与几个源图像的像素有关（不是全连接）。
+
+这两点保证了**卷积神经网络可以用比较小的数据集进行训练，并且不容易过拟合**。
+
+卷积神经网络善于捕捉平移不变（translation invariance），因为神经网络的卷积结构保证了，即使移动几个像素，图片依然具有非常相似的特征。
+
+
+
+训练卷积神经网络的过程：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\130.png' width="80%" height="80%"/>
+
+通过梯度下降或其他优化算法，优化参数，让损失函数 $J$ 降到最低。
 
 
 
