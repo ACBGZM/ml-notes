@@ -1553,9 +1553,48 @@ average pooling：
 
 ### 第二周 深度卷积网络：实例探究(Deep convolutional models: case studies)
 
-#### 2.1 为什么要进行实例探究？（Why look at case studies?）
+一些卷积神经网络的实例分析。Classic networks（LeNet-5，AlexNet，VGG），ResNet，Inception
 
-#### 2.2 经典网络（Classic networks）
+
+
+#### 2.1 为什么要进行实例探究？
+
+好的网络架构可能在其他任务中也好用。
+
+
+
+#### 2.2 经典网络
+
+红笔写的是现在基本不用的技术。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\131.png' width="80%" height="80%"/>
+
+在LeNet提出时，使用的这些技术现在已经基本被取代了：sigmoid和tanh激活函数；平均池化；valid 卷积；受限于计算能力，卷积的计算方法也很复杂。现在用的是：ReLU；最大池化；same卷积。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\132.png' width="80%" height="80%"/>
+
+在AlexNet中，使用了ReLU、same卷积、max-pool、设置stride、softmax等新技术。
+
+LeNet-5大约有60,000个参数；AlexNet有大约60,000,000个参数。
+
+在AlexNet提出时，GPU的处理速度还比较慢，所以AlexNet采用了很复杂的方法在两个GPU上训练。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\133.png' width="80%" height="80%"/>
+
+VGG-16网络没有很多超参数，专注于构建卷积层。16的意思是网络中有16层有权值的地方（2+2+3+3+3=13卷积层，3全连接层）。
+
+- CONV = 3×3 filter, s=1, same
+- MAX-POOL = 2×2, s=2
+
+VGG-16 有约 138,000,000 个参数，但结构很规整，图像缩小的比例和channel增加的比例是有规律的。后面的VGG-19比这个模型更大，但这两个模型表现差不多。
+
+
 
 #### 2.3 残差网络（Residual Networks (ResNets)）
 
