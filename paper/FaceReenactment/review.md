@@ -13,7 +13,7 @@
 
 ### 论文列表
 - [ ] 1.2020-01 [arxiv] DeepFakes and Beyond: A Survey of Face Manipulation and Fake Detection
-- [ ] 2.2020-02 A Review on Face Reenactment Techniques
+- [x] 2.2020-02 A Review on Face Reenactment Techniques
 - [ ] 3.2020-04 [arxiv] The Creation and Detection of Deepfakes: A Survey
 - [ ] 4.2020-05 [arxiv] What comprises a good talking-head video generation? A Survey and Benchmark
 
