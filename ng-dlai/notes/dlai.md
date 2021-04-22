@@ -1553,7 +1553,7 @@ average pooling：
 
 ### 第二周 深度卷积网络：实例探究(Deep convolutional models: case studies)
 
-一些卷积神经网络的实例分析。Classic networks（LeNet-5，AlexNet，VGG），ResNet，Inception
+一些卷积神经网络的实例分析：Classic networks（LeNet-5，AlexNet，VGG），ResNet，Inception；1×1卷积
 
 
 
@@ -1598,21 +1598,191 @@ VGG-16 有约 138,000,000 个参数，但结构很规整，图像缩小的比例
 
 #### 2.3 残差网络（Residual Networks (ResNets)）
 
-#### 2.4 残差网络为什么有用？（Why ResNets work?）
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\134.png' width="80%" height="80%"/>
 
-#### 2.5 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）
+很深的神经网络难以训练，因为存在梯度消失和梯度爆炸的问题。使用ResNet，可以训练北京深层的神经网络。
 
-#### 2.6 谷歌 Inception 网络简介（Inception network motivation）
+每两层组成一个残差块：浅层的激活值通过short cut，直接输入到深层的非线性函数（如ReLU）中。
 
-#### 2.7 Inception 网络（Inception network）
+$$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$ 
 
-#### 2.8 使用开源的实现方案（Using open-source implementations）
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\135.png' width="80%" height="80%"/>
+
+论中将没有使用残差块的神经网络叫做Plain网络，在理论上层数越多，损失越小；但实际情况是，网络越深，在训练集上的误差会反弹。ResNet就会解决这一问题。
+
+
+
+#### 2.4 残差网络为什么有用？
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\136.png' width="80%" height="80%"/>
+
+如果让 $w,b$ 都为0，那么 $a^{[l+1]} = a{^{[l]}}$ ，学习恒等函数对残差块来说很简单。也就是说，虽然加上一个残差块（两层神经网络），效率也不逊色于更简单的神经网络。并且残差块添加的位置也不影响网络的表现。
+
+在不伤害性能的基础上，如果残差块的隐藏单元学习到一些有用信息，那么就能比恒等函数表现得更好。
+
+而对于plain神经网络来说，就算是学习恒等函数的参数都很困难，因此很多层最后的表现变差了。
+
+另外，ResNet使用same卷积，保证 $z^{[l+2]}$ 和 $a^{[l]}$ 有相同的维度，可以相加。如果输入和输出维度不一样，就再增加一个矩阵 $w_s$ 。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\137.png' width="80%" height="80%"/>
+
+几个之前提到的细节：
+
+- 使用3×3 same卷积，保证 $z^{[l+2]}$ 和 $a^{[l]}$ 有相同的维度，可以相加。
+- pool-like 层，进行 /2 降维操作。
+- CONV-CONV-CONV-POOL 交替进行的结构。
+
+
+
+#### 2.5 网络中的网络 / 1×1卷积
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\138.png' width="80%" height="80%"/>
+
+1×1卷积添加了非线性函数，可以让网络学习更复杂的函数。
+
+1×1卷积对单通道作用不大，但对于多通道，可以把所有通道相同位置的数输出成一个数（对应位置相乘 -> 相加 -> ReLU）。如果filter数量不止一个，可以输出多个通道。
+
+论文名字叫 network in network ，这种方法也可以称为1×1卷积。论文中的架构没有得到广泛使用，但这种方法利用到了之后的Inception等模型上。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\139.png' width="80%" height="80%"/>
+
+作用如上图。POOL的作用是压缩 $n_H,n_W$，而 1×1 卷积可以压缩 $n_C$，减少信道数量来简化计算。当然让信道数量保持不变或者增加也可以。
+
+
+
+#### 2.6 Inception 模块简介、
+
+Inception模块：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\140.png' width="80%" height="80%"/>
+
+Inception：不需要人来决定使用什么规格的filter、是否使用POOL。网络结构更复杂但表现更好。
+
+如图，Inception模块输入某个量，经过不同的处理，输出将这些结果叠加起来。
+
+Inception网络不需要人为决定使用哪个fitler，或是否需要池化，而是由网络自行决定这些参数。我们可以给网络添加这些参数的所有可能的值，然后把这些输出连接起来，让网络学习他需要什么样的参数。
+
+为了维持所有的维度相同，对卷积要使用filter卷积，对池化要使用padding（比较特殊的POOL）。
+
+
+
+巨大的运算量：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\141.png' width="80%" height="80%"/>
+
+Inception模块的问题是参数多，计算成本高。以 5×5卷积的一部分为例：需要 5×5×192 filter，对于输出的每个数都要做 filter 规格次数的乘法，也就是一共要做 $(28×28×32) * (5×5×192) ≈ 120 M$ 次乘法。
+
+
+
+改进方法：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\142.png' width="80%" height="80%"/>
+
+使用 1×1 卷积得到相同规格的输出，通过压缩成较小的中间形态（瓶颈层bottleneck layer）。
+
+一共要做 $(28×28×16) * (1×1×192)  + (28×28×32) * (5×5×16) ≈ 2.4 M + 10 M = 12.4 M$ 次运算，乘法计算的成本大约变为原来的十分之一。
+
+通过合理构建瓶颈层，既可以显著缩小表示层的规模，又不会降低网络性能，从而大量节省计算成本。
+
+
+
+#### 2.7 Inception 网络 / GoogLeNet（Inception network）
+
+Inception模块：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\143.png' width="80%" height="80%"/>
+
+
+
+Inception网络：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\144.png' width="80%" height="80%"/>
+
+红圈：由Inception模块重复堆叠而来，有些max-pooling层，来改变长和宽。
+
+绿圈：一些分支，通过一些隐藏层，做一个softmax分类。它确保了即使是隐藏单元和中间层，也参与了特征运算，也能进行预测图片的分类。并且防止网络过拟合。
+
+
+
+其他：也有变体把 Inception 和 ResNet 结合起来。可以看Inception的后续论文。
+
+
+
+#### 2.8 使用开源的实现方案
+
+很多神经网络难以复现，因为一些超参数的细节调整会影响性能。
+
+先从使用开源的实现开始。
+
+
 
 #### 2.9 迁移学习（Transfer Learning）
 
-#### 2.10 数据扩充（Data augmentation）
+用迁移学习把公共数据集的知识迁移到我们自己的问题上。
 
-#### 2.11 计算机视觉现状（The state of computer vision）
+在做一个计算机视觉的应用时，相比于从头训练权重、随机初始化，可以**下载开源的、别人已经训练好的网络结构的权重，作为我们模型的初始化**。
+
+以猫咪分类问题为例，我们使用预训练的 ImageNet 模型，将最后分类改为 softmax 分类这是猫是Tigger，还是Misty，还是都不是。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\145.png' width="80%" height="80%"/>
+
+**图上**：把前面预训练的模型当作冻结的，**只训练跟我们的 softmax 层有关的参数**。
+
+- 或许可以设置`trainableParameter = 0​`或`freeze=1`这样的参数，指定不训练特定层的权重。
+
+- 可以把前面冻结的模型看作一个函数，输入一张图片，输出一个特征向量。只训练后面的softmax层，用这个特征向量来做预测。因此可以**提前计算训练集中所有样本的这一层的激活值**，然后存到硬盘里，在此之上训练softmax层。这样就不用每次遍历数据集重新计算这一层的激活值了。
+
+**图中**：如果模型特别大，可以freeze一部分模型，然后**训练后面的模型**。也可以freeze一部分模型，把后面的模型进行修改。
+
+- 规律：**数据集越大，需要冻结的层数越少，需要进行训练的层数越多**。
+
+**图下**：如果有特别多的数据，就用开源的网络和它的权重当作参数的初始化，然后**训练整个网络**。
+
+
+
+其他：计算机视觉问题中，迁移学习特别常用。除非有一个极其大的数据集，才从头开始训练所有东西。
+
+
+
+#### 2.10 数据增强（Data augmentation）
+
+计算机视觉方面的主要问题是没有办法得到充足的数据。当训练模型时，不管是从别人预训练的模型进行迁移学习，还是从源代码开始训练模型，数据增强会经常有所帮助。
+
+数据增强的方法：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\146.png' width="80%" height="80%"/>
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\147.png' width="80%" height="80%"/>
+
+- 镜像翻转、随即裁剪（保留主体）、旋转、剪切、局部弯曲 等。也可以组合起来用，但因为太复杂，实际上用的很少。
+- 色彩转换，进行RGB的调整，一般是根据某种概率分布来决定改变的值。
+  - *对RGB不同的采样方式：使用PCA（见机器学习网课笔记）。在AlexNet的论文中，成为“PCA color augmentation”，比如我们的图片呈紫色（红蓝多，绿少），那么PCA颜色增强算法会对红蓝有大的增减幅度，对绿的变化相对少，以此使总体的颜色保持一致。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\148.png' width="80%" height="80%"/>
+
+如果数据集比较大，常用的方法是设置单个thread，串行读取数据、进行数据增强。
+
+- thread A：**从硬盘读数据并数据增强**。CPU有一个thread不停地从硬盘中读取数据，同时进行变形或颜色转换形成新的图像，从而构成一个batch或者mini-batch的数据；
+
+- thread B：**训练**。这些数据被传递给其他thread（可能是CPU或GPU），进行模型的训练。
+
+**以上两个thread可以并行实现。**
+
+
+
+其他：数据增强也有一些超参数，比如如何进行颜色变化等。方法依然是学习开源的实现。
+
+
+
+#### 2.11 计算机视觉现状
 
 
 
