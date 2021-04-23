@@ -1553,9 +1553,7 @@ average pooling：
 
 ### 第二周 深度卷积网络：实例探究(Deep convolutional models: case studies)
 
-一些卷积神经网络的实例分析：Classic networks（LeNet-5，AlexNet，VGG），ResNet，Inception；1×1卷积
-
-
+一些卷积神经网络的实例分析：Classic networks（LeNet-5，AlexNet，VGG），ResNet，Inception（1×1卷积）；计算机视觉问题建立在小数据系统上，需要进行：数据增强，迁移训练，使用开源。
 
 #### 2.1 为什么要进行实例探究？
 
@@ -1784,9 +1782,40 @@ Inception网络：
 
 #### 2.11 计算机视觉现状
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\149.png' width="80%" height="80%"/>
+
+从数据少到数据多的应用场景：目标检测，图像识别，语音识别
+
+数据很多时：不需要精心设计模型，可以使用简单的算法、较少的人工。
+
+数据很少：进行更多手工工程，进行迁移学习。
+
+知识的两种来源：标签；手工工程。如果没有很多标签，就用更多的手工。
+
+**计算机视觉问题通常数据相对较少，更多依赖于手工工程，并且设计比较复杂的网络架构，有比较复杂的超参数选择问题**。可以说：**计算机视觉问题建立在小数据系统**。
 
 
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\150.png' width="80%" height="80%"/>
+
+在benchmarks（基准测试）/竞赛上取得好的表现的方法：
+
+- 集成
+  - 当构思好神经网络之后，独立训练几个网络，并对它们的输出求平均。
+  - 集成需要保留多个网络，对内存有比较大的占用。
+- multi-crop
+  - 这是一种将数据增强扩展到测试集的方法。以10-crop为例，把测试集的图片分为（中心裁剪、四角裁剪、镜像中心裁剪、镜像四角裁剪）十张图片，分别对它们进行分类，并对输出求平均。
+  - multi-crop只需要保留一个网络，不会占用太多内存，但会让运行时间变慢。
+
+需要注意，**这是在基准测试和竞赛中使用的方法，不要在真实生产场景下使用这些方法，因为会让运行时间变慢。**
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\151.png' width="80%" height="80%"/>
+
+由于计算机视觉问题建立在小数据系统，其他人已经完成了大量的网络架构的手工工程；并且一个神经网络在一个视觉问题上很有效，通常也会解决其他视觉问题。
+
+所以想建立一个使用的系统，最好先从其他人的神经网络架构入手。尤其是开源系统，会包含超参数设置等细节问题。**最好使用预训练的模型，在我们自己的数据集上进行调优**。
 
 
 
@@ -1794,29 +1823,293 @@ Inception网络：
 
 ### 第三周 目标检测（Object detection）
 
+(1) 能完成 classification 的卷积神经网络。我们希望找到 location
+
+(2) 结合滑动窗口进行 detection（滑动窗口+CNN），可以找到 location 了。但计算量大
+
+(3) 滑动窗口的卷积实现（overfeat），计算简单了。但滑动窗口精度不高
+
+(4) YOLO算法，划分单元格，每个格子预测中点在格子内的物体和物体的边框。可以预测物体的精确边框了。但单个物体有多个边框
+
+(5) mon-max supression，单个物体只有一个边框了。但一个格子只能检测一个对象
+
+(6) anchor boxes，一个格子可以检测多个对象了。
+
 #### 3.1 目标定位（Object localization）
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\152.png' width="80%" height="80%"/>
+
+detection问题中，图片可以包含多个对象，甚至是多个不同分类的对象。
+
+classification 的思路可以帮助学习 classification with localization 问题；classification with localization 的思路又有助于学习 detection 问题。
+
+我们从 classification with localization 问题开始。
+
+
+
+classification with localization pipeline：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\153.png' width="80%" height="80%"/>
+
+图片输入ConvNet，输出一个4分类的softmax + 一个定位坐标。
+
+
+
+标签 y 定义如下：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\154.png' width="80%" height="80%"/>
+
+假定图片中最多出现一个对象。输出 y ：
+
+- P_c：是否有物体（没有就是第四类background）
+- bx, by, bh, bw：物体框
+- c_1, c_2, c_3：是哪一类物体
+
+图右侧有两个例子，"?" 是不需要关心的数。
+
+损失函数定义见图左。当 $y_1=1$，使用 squared erorr；当 $y_1=0$，不许考虑其他元素，只看 P_c 的准确度。
+
+也可以对不同部分使用不同的损失函数，比如对分类部分 c_1, c_2, c_3 使用对数，对 bx, by, bh, bw 使用平方误差，对 P_c 使用逻辑回归损失函数。全用 squared error 也是可以的。
+
+
 
 #### 3.2 特征点检测（Landmark detection）
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\155.png' width="80%" height="80%"/>
+
+以面部识别为例，选定脸部特征点的个数，并生成包含这些特征点的标签训练集，就可以利用神经网络输出脸部特征点的位置。
+
+检测关键点也是数据集图形效果的一个关键构造模块，有了关键点，我们可以进行各种处理，比如扭曲、头戴皇冠的AR等等。
+
+为了得到这样的效果，我们需要一个带有关键点的数据集，这个数据集是人工标注的。举个例子：如果有64个关键点，并且采用图中上方的标签结构，就需要一个129维的标签y。
+
+对人的姿态检测问题，也可以建立关键点。
+
+
+
 #### 3.3 目标检测（Object detection）
 
-#### 3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）
+有了上两节的目标定位和特征点检测，可以通过滑动窗口构建目标检测系统了。
 
-#### 3.5 Bounding Box预测（Bounding box predictions）
+step 1：训练一个ConvNet，输入切割好的图片，输出是否是一辆汽车，y=0或1.
 
-#### 3.6 交并比（Intersection over union）
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\156.png' width="80%" height="80%"/>
+
+step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把每个切片输入ConvNet进行识别。一次滑动结束后，使用更大的窗口重复上述操作。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\157.png' width="80%" height="80%"/>
+
+不管汽车在图片中的哪里，总有一个窗口能让汽车被识别出来。
+
+
+
+滑动窗口的一个大问题是计算开销。如果步幅很大，会让输入ConvNet的窗口切片减少，但粗粒度可能会影响性能。如果采用小粒度或小步幅，传递给ConvNet的窗口切片会特别多，计算成本很高。
+
+这个问题已经有了比较好的解决方法，在下节讲。
+
+
+
+#### 3.4 滑动窗口的卷积实现（Convolutional implementation of sliding windows）
+
+首先知道怎样把全连接层转换成卷积层：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\158.png' width="80%" height="80%"/>
+
+- 为了代替将 5×5×16 展开成 400 维的全连接层：进行 400 个 5×5×16 卷积核的卷积，得到 1×1×400 的输出层。 1×1×400 的输出是上一层  5×5×16 激活值经过某个线性函数的输出结果。
+
+- 为了代替 400 到 400 的全连接层：进行 400 个 1×1 卷积核的卷积。
+- 为了代替 400 到 softmax分类的全连接层：进行 4 个 1×1 卷积核的卷积接一个softmax函数，最终得到 1×1×4 的输出层。
+
+
+
+滑动窗口的卷积实现：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\159.png' width="80%" height="80%"/>
+
+我们有一个 14×14×3 作为输入的ConvNet。如果在 16×16×3 的大图像做滑动窗口，会划分为四部分、进行四次卷积。结果发现，这四次卷积操作中的很多计算都是重复的。
+
+直接对大图进行相同的卷积操作。现在输出层为 2×2×400 而不是 1×1×400。这四次卷积分别对应输出层 2×2 的四个角。（绿色区域的卷积是其中一个例子）
+
+通过把滑动窗口的很多次卷积作为一张图片输入给ConvNet进行计算，其中的公有区域可以共享很多计算。
+
+同理，对 28×28×3 的图片直接进行卷积，相当于做 8×8 次步长为 2 （因为MAX POOL是2×2）的卷积，并且把结果按滑动窗口的顺序排列起来。
+
+
+
+总结：对大图直接进行卷积，一次得到所有预测值。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\160.png' width="80%" height="80%"/>
+
+这个算法效率高，但仍然存在一个缺点：边界框的位置可能不够准确，由于步长的存在，滑动窗口可能不能很好的框选住物体。在下节解决这个问题。
+
+
+
+其他：这个思路也被R-CNN借鉴，从而诞生了Fast R-cNN算法。
+
+
+
+#### 3.5 Bounding Box 预测 - YOLO 算法
+
+更精准的边界框预测算法：YOLO算法。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\161.png' width="80%" height="80%"/>
+
+把图片分成若干格，对每一格应用之前讲过的 classification with localization 算法。对于里面有车的格子，预测出绿色、黄色的标签；对于其他格子，预测出来紫色的标签。**每个单元格负责预测中点位于该格子内的物体和物体的边界框。**
+
+以图中 3×3 格子，长度为 8 的向量，总的输出尺寸是 3×3×8。
+
+如果我们训练这样一个神经网络：输入为 100×100×3 的图片，经过一个ConvNet，最终映射到 3×3×8的输出。通过反向传播训练这个网络，使其能将任意输入x映射到这类输出向量y。这个神经网络可以输出精确的边界框。
+
+细节补充：
+
+- 根据物体的中心点划分它所在的格子，即使对象可以跨越多个格子，也只会被分配到一个格子。
+
+- 在实践中可以使用更精细的格子划分，比如 19×19，降低不同物体中心位于同一个格子的概率。
+
+- 在YOLO中也使用滑动窗口的卷积实现，不会分别计算每个格子经过ConvNet的输出。这加速了YOLO算法的运行，实际上它的运行速度很快，可以达到实时识别。
+
+
+
+表示 bounding box 的约定：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\162.png' width="80%" height="80%"/>
+
+bx, by, bh, bw 单位是相对格子尺度的比例。
+
+- bx，by 必须在 0 到 1 之间。
+- bw，bh 可以大于1，因为车的尺寸可能比一个格子大。
+
+
+
+其他：YOLO论文比较难懂，一些细节很难理解。
+
+
+
+#### 3.6 交并比（Intersection over union） 
+
+如何判断 object detection 算法运作良好？定义IoU的概念。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\163.png' width="80%" height="80%"/>
+
+实际的 bounding box 是红色，我们预测的是紫色。IoU 计算它们交集（intersection）和并集（union）的比值，并跟一个阈值进行对比。
+
+
 
 #### 3.7 非极大值抑制（Non-max suppression）
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\164.png' width="80%" height="80%"/>
+
+分格子进行检测后，不仅中心点的格子会认为自己含有某个物体，周围的格子也会认为自己检测出了这个物体。导致很多格子的 P_c 值会比较高（图中的数字）。导致对同一个对象做出多次检测。
+
+**非极大值抑制**：首先看概率最大的一个，标记这里检测出了车（图中高亮）；然后逐一检查剩下的矩形，对所有与这个bounding box有很高交并比（IoU）的其他bounding box的输出抑制。
+
+通过非极大值抑制，确保算法对每个对象只检测一次。
+
+
+
+算法步骤：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\165.png' width="80%" height="80%"/>
+
+
+
 #### 3.8 Anchor Boxes
 
-#### 3.9 YOLO 算法（Putting it together: YOLO algorithm）
+现在的问题：每个格子只能检测出一个对象。如何能让一个格子检测多个（中点位于格子内的）对象？
 
-#### 3.10 候选区域（选修）（Region proposals (Optional)）
+方法：设置几个anchor box。以两个为例：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\166.png' width="80%" height="80%"/>
+
+如果有两个anchor box，标签变为16维，输出从 3×3×8 变为 3×3×16。
+
+文字描述：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\167.png' width="80%" height="80%"/>
+
+检测到的物体，寻找跟哪个 anchor box 的交并比更高，然后填入 $y$ 相应的位置。
 
 
 
+一个具体例子：
 
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\168.png' width="80%" height="80%"/>
+
+如果指定 anchor box 1 大约是行人形状，anchor box 2 大约是汽车形状，同时有人和车、只有车的 $y$ 如图右侧所示。
+
+异常情况：
+
+- 如果一个格子中有三个对象，但只设置了两个 anchor box
+
+- 同一个格子的几个 anchor box 形状相似
+
+这两种情况发生时，算法没有好的解决方法，需要引入一些打破僵局的默认手段专门处理这些情况。
+
+
+
+其他：
+
+- anchor box 要处理的格子有多个对象的中点问题出现的很少（361个格子很难重复），但设立 anchor box 的好处在于能让学习算法更具有对数据集的针对性，尤其是数据集中有一些很瘦很高的对象，比如行人，或者汽车这样很宽的对象。
+- 如何选择 anchor box 的形状？
+  - 一般是手工指定。选择 5~10 个，涵盖想要检测的对象的各种形状。
+  - 另一个更高级的方法：使用 k-means ，将两类对象形状聚类，来选择最具代表性的 anchor box。
+
+
+
+#### 3.9 整合起来：YOLO 算法
+
+**训练模型**：训练一个卷积神经网络，输入图片，输出相应的标签 $y$。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\169.png' width="80%" height="80%"/>
+
+
+
+**进行预测**：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\170.png' width="80%" height="80%"/>
+
+
+
+**进行非最大值抑制**：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\171.png' width="80%" height="80%"/>
+
+- 对于每个格子，都有两个 anchor box 预测的结果。有些 bounding box可以超出所在格子的宽高。  
+
+- 丢掉概率很小（P_c）的预测。
+- 对每个类别，单独运行非最大值抑制。分别找到独立的行人、汽车、摩托。
+
+
+
+#### 3.10 *候选区域（Region proposals ）
+
+在目标检测领域论文中的常见算法，在少数窗口上运行CNN分类器。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\172.png' width="80%" height="80%"/>
+
+有些滑动窗口并没有进行识别的价值。因此 R-CNN 算法尝试选出一些区域，在这些区域上运行CNN分类器是有意义的。
+
+运行图像分割算法，找到一些色块（如2000个），在色块上放置边界框，然后跑CNN分类器查看结果。
+
+
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\173.png' width="80%" height="80%"/>
+
+可以看出，R-CNN运行比较慢。
+
+basic R-CNN使用某种算法求出候选区域，然后对每个候选区域跑一下CNN分类器，每个区域输出一个标签+边界框。（得到的边界框更精确，而不是色块的边界框）
+
+Fast R-CNN：滑动窗口的卷积实现。加速了R-CNN。
+
+
+
+得到预选区域的聚类步骤（propose regions）仍然比较缓慢。
+
+Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区域色块。
+
+
+
+其他：大多数更快的R-CNN算法实现还是比YOLO慢很多。因为R-CNN需要两步，先得出预选区域，然后进行识别；而YOLO是 you only look once。
 
 
 
