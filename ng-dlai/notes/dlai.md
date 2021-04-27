@@ -2115,27 +2115,143 @@ Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区�
 
 
 
-### 第四周 特殊应用：人脸识别和神经风格转换
+### 第四周 特殊应用：人脸识别和风格迁移
 
-#### 4.1 什么是人脸识别？(What is face recognition?)
+#### 4.1 什么是人脸识别？
+
+识别人脸+活体检测。
+
+一些术语：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\174.png' width="80%" height="80%"/>
+
+- 人脸验证（verification）：输入图片和身份，验证图片和身份是否对应。一对一。
+
+- 人脸识别（recognition）：输入图片，识别出身份。一对多。
+
+先构建verification系统。如果表现够好，就将其用在recognition系统上。
+
+
 
 #### 4.2 One-Shot学习（One-shot learning）
 
+需要通过单张图片或单个人脸样例，就可以识别这个人的身份。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\175.png' width="80%" height="80%"/>
+
+如果使用图中画出的结构，训练CNN进行softmax识别，那么如果新加入一个人，就要修改输出数量并且重新训练CNN。
+
+需要做到one-shot：只通过一个样本进行学习。
+
+
+
+具体来说：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\176.png' width="80%" height="80%"/>
+
+不训练CNN，而是学习similarity函数 $d(img1,1mg2)$ 。这个函数输入两张图片，输出差异值。
+
+用输入图片跟数据库中的图片计算差异值，跟阈值比较，进行判断。
+
+添加新的图片，也可以正常工作。
+
+
+
 #### 4.3 Siamese 网络（Siamese network）
 
-#### 4.4 Triplet 损失（Triplet 损失）
+想要学习similarity函数 $d(img1,1mg2)$ ，输入两张图片，输出它们的差异度或相似度。
+
+实现的一个方式就是用 Siamese 网络，思路是：**对于不同的输入运行相同的CNN，然后比较它们的输出**。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\177.png' width="80%" height="80%"/>
+
+有一个网络，输入一张图片，可以得到一个128维的向量。如果把两张图片 $x^{(1)},x^{(2)}$ 输入同样的网络，可以得到输出向量 $f(x^{(1)}),f(x^{(2)})$ 。
+
+将 $d(x^{(1)},x^{(2)})$ 定义为两张图片编码之差的范数：
+
+$$d(x^{(1)},x^{(2)})=||f(x^{(1)})-f(x^{(2)})||^2_2$$ 
+
+
+
+从训练层面上：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\178.png' width="80%" height="80%"/>
+
+训练神经网络参数，目标是：相同人物的图片，输出相似；不同任务的图片，输出相差较大。
+
+下节：有了训练目标，具体定义怎样的损失函数？
+
+
+
+#### 4.4 Triplet 损失
+
+
+
+
+
+
+
+
 
 #### 4.5 面部验证与二分类（Face verification and binary classification）
 
+
+
+
+
+
+
+
+
 #### 4.6 什么是神经风格转换？（What is neural style transfer?）
+
+
+
+
+
+
+
+
 
 #### 4.7 什么是深度卷积网络？（What are deep ConvNets learning?）
 
+
+
+
+
+
+
+
+
 #### 4.8 代价函数（Cost function）
+
+
+
+
+
+
+
+
 
 #### 4.9 内容代价函数（Content cost function）
 
+
+
+
+
+
+
+
+
 #### 4.10 风格代价函数（Style cost function）
+
+
+
+
+
+
+
+
 
 #### 4.11 一维到三维推广（1D and 3D generalizations of models）
 
