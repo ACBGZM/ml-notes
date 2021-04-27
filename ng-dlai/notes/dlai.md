@@ -6,7 +6,7 @@
 
 学习的含义：找到特定的 $\omega$ 和 $b$ ，使代价函数最小化。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b1.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b1.png'  width="80%" height="80%"/>
 
 
 
@@ -22,11 +22,11 @@
 
 反向传播的链式法则
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b2.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b2.png'  width="80%" height="80%"/>
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3b1b3.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3b1b3.png'  width="80%" height="80%"/>
 
 
 
@@ -58,7 +58,7 @@
 
 神经网络可以当作一个函数。通过数据集计算从x到y的精准映射函数，然后对于新的数据x，给出预测的结果y。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\1.png'  width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\1.png'  width="80%" height="80%"/>
 
 
 
@@ -66,13 +66,13 @@
 
 监督学习：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\2.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\2.png' width="80%" height="80%"/>
 
 对于图片，使用CNN。对于序列信息（音频、语言信息等）使用RNN。
 
 结构化数据：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\3.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\3.png' width="80%" height="80%"/>
 
 神经网络能帮助计算机理解无结构化数据。
 
@@ -82,7 +82,7 @@
 
 数据和计算规模的进展。现在获得了很大的数据量、计算了很复杂的网络。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\4.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\4.png' width="80%" height="80%"/>
 
 其他原因：算法的改进，比如从sigmoid函数到relu函数
 
@@ -100,11 +100,11 @@
 
 #### 2.1 二分类(Binary Classification)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\6.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\6.png' width="80%" height="80%"/>
 
 数据集按列组成矩阵：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\5.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\5.png' width="80%" height="80%"/>
 
 X.shape = (n<sub>x</sub>, m)
 
@@ -114,7 +114,7 @@ y.shape = (1, m)
 
 #### 2.2 逻辑回归(Logistic Regression)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\7.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\7.png' width="80%" height="80%"/>
 
 在神经网络中，将 $b$ 和 $w$ 分开表示，不采用逻辑回归那样组合成 $\theta$ 的形式。
 
@@ -122,13 +122,13 @@ y.shape = (1, m)
 
 #### 2.3 逻辑回归的代价函数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\8.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\8.png' width="80%" height="80%"/>
 
 
 
 #### 2.4 梯度下降（Gradient Descent）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\9.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\9.png' width="80%" height="80%"/>
 
 
 
@@ -140,7 +140,7 @@ y.shape = (1, m)
 
 计算图表示从左向右的计算过程。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\10.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\10.png' width="80%" height="80%"/>
 
 
 
@@ -148,7 +148,7 @@ y.shape = (1, m)
 
 根据计算图，从右到左计算函数 J 的导数。（链式求导）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\11.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\11.png' width="80%" height="80%"/>
 
 
 
@@ -156,13 +156,13 @@ y.shape = (1, m)
 
 用计算图理解逻辑回归的梯度下降。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\12.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\12.png' width="80%" height="80%"/>
 
 
 
 #### 2.10 梯度下降的例子
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\13.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\13.png' width="80%" height="80%"/>
 
 dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J、 dw<sub>1</sub>、 dw<sub>2</sub>、db 除以样本个数。
 
@@ -176,7 +176,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 #### 2.11 向量化(Vectorization)
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\14.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\14.png' width="80%" height="80%"/>
 
 向量化是很有必要的。在上图1000000维向量相乘运算中，使用向量化比使用for循环节省300倍的时间。
 
@@ -184,7 +184,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 #### 2.12 更多的向量化例子
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\15.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\15.png' width="80%" height="80%"/>
 
 
 
@@ -192,7 +192,7 @@ dw<sub>1</sub>、 dw<sub>2</sub>、db 作为累加器。数据集循环后，J�
 
 向量化逻辑回归的正向传播：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\16.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\16.png' width="80%" height="80%"/>
 
 Z = np.dot(w.T, X) + b
 
@@ -210,7 +210,7 @@ Z = np.dot(w.T, X) + b
 
 向量化逻辑回归的反向传播：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\17.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\17.png' width="80%" height="80%"/>
 
 dZ = A - Y
 
@@ -228,7 +228,7 @@ dw =  np.dot(X, dZ.T) / m
 
 一次梯度下降：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\18.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\18.png' width="80%" height="80%"/>
 
 
 
@@ -236,7 +236,7 @@ dw =  np.dot(X, dZ.T) / m
 
 #### 2.15 Python中的广播机制（Broadcasting in Python）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\19.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\19.png' width="80%" height="80%"/>
 
 
 
@@ -254,7 +254,7 @@ dw =  np.dot(X, dZ.T) / m
 
 也可以用 `assert` 或 `reshape` 修改为矩阵格式。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\20.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\20.png' width="80%" height="80%"/>
 
 
 
@@ -264,13 +264,13 @@ dw =  np.dot(X, dZ.T) / m
 
 #### 2.18* 逻辑回归损失函数详解
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\21.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\21.png' width="80%" height="80%"/>
 
 
 
 在整个数据集上的情况：假设样本是独立同分布，可以累乘，做最大似然估计使这个式子取最大值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\22.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\22.png' width="80%" height="80%"/>
 
 
 
@@ -282,7 +282,7 @@ dw =  np.dot(X, dZ.T) / m
 
 正向传播，计算损失函数 $L$ ；反向传播，计算梯度下降需要的 $dW$、$db$ 。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\23.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\23.png' width="80%" height="80%"/>
 
 
 
@@ -290,7 +290,7 @@ dw =  np.dot(X, dZ.T) / m
 
 $ a^{[i]}$ 表示第 $i$ 层的激活值，$a^{[0]}=X$
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\24.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\24.png' width="80%" height="80%"/>
 
 
 
@@ -298,15 +298,15 @@ $ a^{[i]}$ 表示第 $i$ 层的激活值，$a^{[0]}=X$
 
 向量化的前向传播
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\25.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\25.png' width="80%" height="80%"/>
 
 
 
 #### 3.4 多样本向量化
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\26.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\26.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\27.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\27.png' width="80%" height="80%"/>
 
 $X,Z,A$ 都是按列组合起来的矩阵。
 
@@ -320,9 +320,9 @@ $Z^{[1]}$ 的每一列都是一个训练样本 $X_i$ 经过 $W^{[1]}$ 计算而�
 
 把 $b$ 加上也一样，可能用到广播机制。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\28.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\28.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\29.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\29.png' width="80%" height="80%"/>
 
 
 
@@ -332,7 +332,7 @@ $Z^{[1]}$ 的每一列都是一个训练样本 $X_i$ 经过 $W^{[1]}$ 计算而�
 
 tanh和sigmoid函数的问题是：当x很大或很小，函数的梯度约为0，会拖慢梯度下降。因此在隐藏层用ReLU函数更好。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
 
 
 
@@ -340,13 +340,13 @@ tanh和sigmoid函数的问题是：当x很大或很小，函数的梯度约为0�
 
 如果不用非线性激活函数，神经网络的输出就是 $X$ 的线性组合。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\31.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\31.png' width="80%" height="80%"/>
 
 
 
 #### 3.8 激活函数的导数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\30.png' width="80%" height="80%"/>
 
 Sigmoid：
 
@@ -376,7 +376,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 #### 3.9 神经网络的梯度下降
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\32.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\32.png' width="80%" height="80%"/>
 
 前向传播过程：
 
@@ -408,9 +408,9 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 想一想矩阵的维度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\33.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\33.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\34.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\34.png' width="80%" height="80%"/>
 
 
 
@@ -422,7 +422,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 如果 $W$ 的值太大，$z$ 会落在tanh函数和sigmoid函数平缓的部分，梯度下降会很慢。如果完全没有用到这两个函数就没有影响。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\35.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\35.png' width="80%" height="80%"/>
 
 训练浅层神经网络，0.01是可用的；当训练深层神经网络，要使用其他的常数，在之后讲。
 
@@ -434,7 +434,7 @@ $$ g'(z)= \begin{cases}  0.01,&\text{if } z<0 \\ 1,&\text{if } z≥0 \end{cases}
 
 #### 4.1 深层神经网络
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\36.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\36.png' width="80%" height="80%"/>
 
 $L$：层数，从0开始计数。
 
@@ -446,7 +446,7 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 #### 4.2 前向传播
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\37.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\37.png' width="80%" height="80%"/>
 
 基本过程：
 
@@ -461,11 +461,11 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 #### 4.3 检查矩阵的维数
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\38.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\38.png' width="80%" height="80%"/>
 
 同样本排列成一列（如 $(x_1,x_2)^T$、$(z_1,z_2)^T$），不同的样本m纵向组合起来（如 $(A[0],A[1])$、$(Z[1],Z[2])$）。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\39.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\39.png' width="80%" height="80%"/>
 
 在向量化的场合，python的broadcasting机制把 $b[1]$ 维度 $(n^{[1]},1)$ 扩展成 $(n^{[1]},m)$。
 
@@ -477,21 +477,21 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 在直觉层面理解，深层神经网络能组合从简单到复杂的信息。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\40.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\40.png' width="80%" height="80%"/>
 
 
 
 另一种直觉理解，从电路角度，用小规模但深层的电路结构，可以进行复杂的计算；但用浅层的电路模型，要用指数级增长的运算单元才能实现相同的功能。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\41.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\41.png' width="80%" height="80%"/>
 
 
 
 #### 4.5 搭建深层神经网络块
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\42.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\42.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\43.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\43.png' width="80%" height="80%"/>
 
 
 
@@ -499,11 +499,11 @@ $n^{[l]}$：$l$ 层的神经元个数。
 
 前向传播的实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\44.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\44.png' width="80%" height="80%"/>
 
 反向传播的实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\45.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\45.png' width="80%" height="80%"/>
 
 
 
@@ -518,7 +518,7 @@ Hyperparameters:
 
 尝试不同的超参数值，找到合适的值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\46.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\46.png' width="80%" height="80%"/>
 
 
 
@@ -526,7 +526,7 @@ Hyperparameters:
 
 目前对人脑的认识没有达到建立数学模型的程度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\47.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\47.png' width="80%" height="80%"/>
 
 
 
@@ -558,11 +558,11 @@ Hyperparameters:
 
 #### 1.2 偏差/方差（Bias /Variance）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\48.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\48.png' width="80%" height="80%"/>
 
 前提：基本error很低；验证集和测试集来自同一分布。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\49.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\49.png' width="80%" height="80%"/>
 
 训练集的error要跟基本error比，基本error通常是人工识别的error。
 
@@ -587,7 +587,7 @@ Hyperparameters:
 
 逻辑回归的正则化：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\50.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\50.png' width="80%" height="80%"/>
 
 如果用的是L1正则化，W最终会是稀疏的，也就是W向量中有很多0。
 
@@ -599,7 +599,7 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 神经网络的正则化：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\51.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\51.png' width="80%" height="80%"/>
 
 由于历史原因，不叫矩阵的L2正则化，而是叫 frobenius norm。
 
@@ -611,13 +611,13 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 从直观上理解，正则化项降低了 $W$ 的值，也就是降低了一些神经元的作用，简化了模型，让模型从过拟合向欠拟合发展。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\52.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\52.png' width="80%" height="80%"/>
 
 
 
 第二种直观理解方法：$W$ 值变小，$z$ 集中在激活函数的线性部分，则模型的每一层都相当于线性变换，模型不适用于复杂的决策，降低了过拟合程度。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\53.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\53.png' width="80%" height="80%"/>
 
 如果实施了带正则化项的损失函数，当使用梯度下降法时，为了调试梯度下降，要使用这个新定义的损失函数，否则损失函数可能不会再所有的调幅范围内都单调递减。
 
@@ -627,11 +627,11 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 对每个训练样本，遍历神经网络的每一层，并设置消除神经网络中节点的概率，消除一些节点，得到一个更小规模的神经网络，训练这个精简后的网络。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\54.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\54.png' width="80%" height="80%"/>
 
  一种实现方法：inverted dropout（反向随机失活）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\55.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\55.png' width="80%" height="80%"/>
 
 用不等式给d赋值为true或false，跟a相乘让a的一部分值失效。
 
@@ -645,7 +645,7 @@ $\lambda$ 也是一个需要调整的超参数。为了防止与python的关键�
 
 直观上理解，dropout让神经元不依赖于某一个特征，而让权重更加分散。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\56.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\56.png' width="80%" height="80%"/>
 
 如果更担心在某些层有过拟合，就把某些层的keep-prob设置得低一些。缺点是在验证集上调参工作量增大。
 
@@ -661,13 +661,13 @@ dropout一大缺点就是代价函数 $J$ 不再被明确定义。每次迭代�
 
 data augment
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\57.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\57.png' width="80%" height="80%"/>
 
 
 
 early stopping
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\58.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\58.png' width="80%" height="80%"/>
 
 建立模型的两个过程：其一是让 $J(w, b)$ 取到最小值，手段包括梯度下降等；其二是防止过拟合，又称为orthogonalization，手段包括正则化等。early stopping 的缺点是破坏了这两个过程相互的独立性。提前结束训练过程，也就是打断了第一个过程。
 
@@ -679,13 +679,13 @@ early stopping
 
 第一步：零均值化；第二步：方差归一化。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\59.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\59.png' width="80%" height="80%"/>
 
 注意：在训练集和测试集上要用相同的 $\mu,\sigma$ 。
 
 这样做的原因：让优化变快。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\60.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\60.png' width="80%" height="80%"/>
 
 
 
@@ -693,7 +693,7 @@ early stopping
 
 activations以指数级增长或下降，给梯度下降造成困难。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\61.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\61.png' width="80%" height="80%"/>
 
 以图中简化 $b$ 、$w$ 全部是对角矩阵的神经网络为例：$w$ 比单位矩阵大一点，激活值以指数级增长；w 比单位矩阵小一点，激活值以指数级减小。
 
@@ -701,7 +701,7 @@ activations以指数级增长或下降，给梯度下降造成困难。
 
 #### 1.11 神经网络的权重初始化
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\62.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\62.png' width="80%" height="80%"/>
 
 通过给 $W$ 设置合理的初始值（不能比1大/小太多），避免梯度消失和梯度爆炸。
 
@@ -719,19 +719,19 @@ activations以指数级增长或下降，给梯度下降造成困难。
 
 用 $\frac{f(\theta+\epsilon)-f(\theta-\epsilon)}{2\epsilon}\approx g(\theta)$ 近似计算 $\theta$ 的梯度 $g(\theta)$。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\63.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\63.png' width="80%" height="80%"/>
 
 
 
 #### 1.13 梯度检验（Gradient checking）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\64.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\64.png' width="80%" height="80%"/>
 
 把所有层的$w,b$ 组合成矩阵 $\theta$，所有层的$dW,db$ 组合成矩阵 $d\theta$ 。我们需要验证：$d\theta$ 是 $\theta$ 的梯度。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\65.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\65.png' width="80%" height="80%"/>
 
 计算近似梯度：
 
@@ -745,7 +745,7 @@ $$check: \frac{||d\theta_{approx}-d\theta||_2}{||d\theta_{approx}||_2+||d\theta|
 
 #### 1.14 应用梯度检验的注意事项
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\65-add.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\65-add.png' width="80%" height="80%"/>
 
 - 不要在训练过程中使用梯度检验，只用于调试。
 - 如果梯度检验失败，检查哪一项的导数计算结果和估计值偏差很大，确定bug位置，比如在某一层的求导结果跟估计值差很大。
@@ -769,7 +769,7 @@ mini-batch梯度下降：把整个数据集划分为若干个mini-batch，在每
 
 实现过程：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\66.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\66.png' width="80%" height="80%"/>
 
 前向传播、求平均损失 --> 反向传播、梯度下降。在每个mini-batch中进行这样的操作。
 
@@ -779,7 +779,7 @@ mini-batch梯度下降：把整个数据集划分为若干个mini-batch，在每
 
 #### 2.2 理解Mini-batch 梯度下降
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\67.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\67.png' width="80%" height="80%"/>
 
 mini-batch会让梯度下降有噪声，但最终也会收敛到比较小的水平。
 
@@ -787,7 +787,7 @@ mini-batch会让梯度下降有噪声，但最终也会收敛到比较小的水�
 
 mini-batch梯度下降的优势：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\68.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\68.png' width="80%" height="80%"/>
 
 - mini-batch size = m，即 batch 梯度下降：步长大，噪声少。单次迭代耗时长。
 
@@ -812,7 +812,7 @@ mini-batch梯度下降的优势：
 
 #### <span id = "2.2.3">2.3 指数加权平均（Exponentially weighted averages）</span>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\69.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\69.png' width="80%" height="80%"/>
 
 在统计学中叫指数加权移动平均值。
 
@@ -829,7 +829,7 @@ $V_t$ 可以看作在 $\frac{1}{1-\beta}$ 天中，温度$\theta$ 的平均值�
 
 #### 2.4 理解指数加权平均
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\70.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\70.png' width="80%" height="80%"/>
 
 把算式展开，是sum(每天的温度×指数衰减系数)的形式。（右上方两个图中对应值相乘）
 
@@ -843,7 +843,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\71.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\71.png' width="80%" height="80%"/>
 
 在实现上，只需要存储单个变量 $V$ 并且不断更新即可。$V$ 近似了平均值，省去了使用滑动窗口求和求精确平均值所需的存储空间。
 
@@ -853,7 +853,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 #### 2.5 指数加权平均的偏差修正（Bias correction in exponentially weighted average）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\72.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\72.png' width="80%" height="80%"/>
 
 以 $\beta=0.98$ 为例，在实际实现上，会得到紫线而不是绿线。以为初始化 $V=0$ ，前几项会很小。（见左下算式）
 
@@ -867,7 +867,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 计算梯度的指数加权平均数，加速梯度下降。这个方法好于普通梯度下降。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\73.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\73.png' width="80%" height="80%"/>
 
 梯度下降的波动，要求我们不能用很大的学习率。在纵轴上，我们希望学习慢一点；在横轴上，希望学习快一点。
 
@@ -879,7 +879,7 @@ $$V_{100} = 0.1\times\theta_{100}+0.1\times 0.9\times\theta_{99}+0.1\times 0.9\t
 
 实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\74.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\74.png' width="80%" height="80%"/>
 
 $\beta$ 的常用值是 0.9，即平均前十次迭代的梯度。同时也可以不使用偏差修正 $\frac{V_t}{1-\beta^t}$ ，因为10次后已经可以正常近似了。
 
@@ -891,7 +891,7 @@ $\beta$ 的常用值是 0.9，即平均前十次迭代的梯度。同时也可�
 
 另一种消除梯度下降的摆动，加快梯度下降的方法。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\75.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\75.png' width="80%" height="80%"/>
 
 当在某个方向波动大（如图中举例 $db$ ，在梯度下降减去一个分母较大的数 $b:= b-\alpha \frac{db}{\sqrt{db}}$，让梯度下降的幅度减小。在某个方向梯度下降幅度小（如图中举例 $dw$ ，在梯度下降减去一个较小的数 $w:= w-\alpha \frac{dw}{\sqrt{dw}}$，让梯度下降的幅度增大。
 
@@ -911,13 +911,13 @@ RMSprop：$w = w - \alpha \frac{dw}{\sqrt{S_{dw}+\epsilon}}$
 
 Adam：$w = w - \alpha \frac{V_{dw}}{\sqrt{S_{dw}+\epsilon}}$ 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\76.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\76.png' width="80%" height="80%"/>
 
 
 
 几个超参数，当应用adam算法时，$\beta_1,\beta_2,\epsilon$ 常常都是用缺省值，$\alpha$ 需要实验确定。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\77.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\77.png' width="80%" height="80%"/>
 
 
 
@@ -925,7 +925,7 @@ Adam：$w = w - \alpha \frac{V_{dw}}{\sqrt{S_{dw}+\epsilon}}$
 
 随时间慢慢减小学习率。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\78.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\78.png' width="80%" height="80%"/>
 
 一种方法：
 
@@ -933,13 +933,13 @@ $$\alpha = \frac{1}{1+decay\_rate \times epoch\_num}\alpha_{init}$$
 
 decay\_rate 是需要调整的超参数。 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\79.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\79.png' width="80%" height="80%"/>
 
 
 
 其他几种方法：指数衰减、除以epoch_num的开方、离散衰减等。也有看着模型训练过程，然后手动进行衰减的方法。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\80.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\80.png' width="80%" height="80%"/>
 
 
 
@@ -947,11 +947,11 @@ decay\_rate 是需要调整的超参数。
 
 在维数很高的情况下，更多的情况是收敛到鞍形部位（鞍点，图右方），而不是局部最优点（图左方）。在鞍点，一些方向的曲线向下弯曲，一些方向的曲线向上弯曲。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\81.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\81.png' width="80%" height="80%"/>
 
 在鞍上称为plateaus问题，这段时间训练得比较慢，使用momentum等算法可以加速此过程。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\82.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\82.png' width="80%" height="80%"/>
 
 
 
@@ -963,13 +963,13 @@ decay\_rate 是需要调整的超参数。
 
 #### 3.1 调参规则
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\83.png' width="50%" height="50%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\83.png' width="50%" height="50%"/>
 
 调参重要性排序：红 > 黄 > 紫。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\84.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\84.png' width="80%" height="80%"/>
 
 在深度学习中，不要用网格取值进行实验（图左）。
 
@@ -977,7 +977,7 @@ decay\_rate 是需要调整的超参数。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\85.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\85.png' width="80%" height="80%"/>
 
 使用从粗略到精细（coarse to fine）的策略。在表现好的区域上进行更密集的取值尝试
 
@@ -987,7 +987,7 @@ decay\_rate 是需要调整的超参数。
 
 有些超参数，可以在合理的范围内，在**线性轴**上，做随机均匀取值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\86.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\86.png' width="80%" height="80%"/>
 
 
 
@@ -998,7 +998,7 @@ r = -4 * np.random.randn()
 alpha = exp(10, r)
 ```
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\87.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\87.png' width="80%" height="80%"/>
 
 
 
@@ -1006,19 +1006,19 @@ alpha = exp(10, r)
 
 在 $1-\beta$ 取值，而不是在 $\beta$ 取值。因为在 $\beta$ 越接近 1，平均的样本个数有更大的变化，需要更密集的取值。所以在 $1-\beta$ 接近 0 时进行更密集的取值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\88.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\88.png' width="80%" height="80%"/>
 
 
 
 #### 3.3 超参数训练的实践：Pandas vs. Caviar
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\89.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\89.png' width="80%" height="80%"/>
 
 在不同领域的参数设置可能有相似的部分，多了解其他工作；多进行尝试。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\90.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\90.png' width="80%" height="80%"/>
 
 一种方法：在训练中照看（babysitting）模型，比如进行学习率的调整。
 
@@ -1032,7 +1032,7 @@ batch normalization 会使参数搜索问题变得很容易，使神经网络对
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\91.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\91.png' width="80%" height="80%"/>
 
 对逻辑回归、神经网络的输入归一化而言，进行输入特征值的归一化是有效的。如图的上半部分，对 $x_1,x_2,x_3$ 进行归一化对 $w,b$ 的训练有帮助。
 
@@ -1042,7 +1042,7 @@ batch normalization 会使参数搜索问题变得很容易，使神经网络对
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\92.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\92.png' width="80%" height="80%"/>
 
 实现：
 
@@ -1061,7 +1061,7 @@ $$\widetilde{z}^{(i)} = \gamma z_{norm}^{(i)} + \beta$$
 
 #### 3.5 深度神经网络的批归一化
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\93.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\93.png' width="80%" height="80%"/>
 
 batch norm是发生在计算 $z$ 和 $a$ 之间的。给神经网络添加了新的参数 $\gamma,\beta$ 。（注意，跟momentum等优化算法的超参数 $\beta$ 区分。这两者的论文都使用 $\beta$ 作为参数的名称。）
 
@@ -1071,7 +1071,7 @@ batch norm是发生在计算 $z$ 和 $a$ 之间的。给神经网络添加了新
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\94.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\94.png' width="80%" height="80%"/>
 
 batch norm通常和训练集的mini-batch一起使用。在每一个mini-batch上，做一次梯度下降。
 
@@ -1091,7 +1091,7 @@ batch norm通常和训练集的mini-batch一起使用。在每一个mini-batch�
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\95.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\95.png' width="80%" height="80%"/>
 
 实现：
 
@@ -1105,17 +1105,17 @@ batch norm通常和训练集的mini-batch一起使用。在每一个mini-batch�
 
 第二个原因：让权重比网络更滞后或更深层，让数值更稳定。第10层的权重比第1层的权重更robust。在之前层的权重发生改变时，$z$ 会发生变化，但batch norm保证了 $z$  的均值和方差保持不变。因此限制了在前层的参数更新对数值分布的影响。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\96.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\96.png' width="80%" height="80%"/>
 
 第三个原因：batch norm有一点正则化的效果。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\97.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\97.png' width="80%" height="80%"/>
 
 
 
 #### 3.7 测试时的Batch Norm
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\98.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\98.png' width="80%" height="80%"/>
 
 在训练过程中，batch norm一次作用在一个mini-batch上，求这个mini-batch上的均值和方差（图左）；在评估阶段，batch norm只作用在单个测试样本上，虽然可以在整个测试集上计算 $\mu,\sigma^2$，但在实际操作中，通常使用指数加权平均（图右）。
 
@@ -1129,13 +1129,13 @@ batch norm通常和训练集的mini-batch一起使用。在每一个mini-batch�
 
 #### 3.8 Softmax 回归 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\99.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\99.png' width="80%" height="80%"/>
 
 多分类问题中，预测一组相加为1的概率值作为神经网络的输出层。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\100.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\100.png' width="80%" height="80%"/>
 
 使用softmax激活函数进行从权值到概率的转换。$t^i=e^{z^i}$，$a^i = \frac{t^i}{\sum t}$ 
 
@@ -1145,7 +1145,7 @@ ReLU和Sigmoid函数输入一个实数，输出一个实数；而softmax函数�
 
 直观的softmax分类的例子：神经网络只有一层softmax层。神经元有三个，就分成3类，每类之间都是线性决策边界。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\101.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\101.png' width="80%" height="80%"/>
 
 
 
@@ -1153,13 +1153,13 @@ ReLU和Sigmoid函数输入一个实数，输出一个实数；而softmax函数�
 
 softmax跟hardmax相对，把最大值更温和地转换成一个概率，而不是全部改为0和1.
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\102.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\102.png' width="80%" height="80%"/>
 
 
 
 **训练-损失函数**：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\103.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\103.png' width="80%" height="80%"/>
 
 单个训练样本的损失函数：$$L(\hat{y}, y) = -\sum^C_{j=1}y_jlog\hat{y_j}$$
 
@@ -1173,7 +1173,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 **训练-梯度下降**：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\104.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\104.png' width="80%" height="80%"/>
 
 梯度：$$dz^{[l]} = \hat{y} - y$$ 
 
@@ -1185,7 +1185,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 现存的框架；选择框架的标准。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\105.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\105.png' width="80%" height="80%"/>
 
 
 
@@ -1193,7 +1193,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 在tensorflow中定义损失函数cost，可以理解为tensorflow会建立起一个计算图，来自动完成后续的反向传播。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\106.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\106.png' width="80%" height="80%"/>
 
 在框架中，可以只用一行代码修改很多工作，比如训练的方法是梯度下降还是Adam。这支持我们快速实现复杂的神经网络模型。
 
@@ -1239,19 +1239,19 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 计算机视觉的一个问题是数据量非常大。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\107.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\107.png' width="80%" height="80%"/>
 
 
 
 #### 1.2 卷积运算-边缘检测为例（Edge detection）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\108.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\108.png' width="80%" height="80%"/>
 
 在神经网络隐藏层中，不同层识别不同的信息。比如，浅层识别物体的边缘，深层识别人脸的部位，更深层识别整个人脸。以边缘检测为例，展示卷积计算的过程。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\109.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\109.png' width="80%" height="80%"/>
 
 以中间矩阵的区域，在左边矩阵的每个对应区域，进行对应元素相乘，然后加起来，作为右边矩阵的一个值。
 
@@ -1259,7 +1259,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 这也是纵向边缘的计算过程：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\110.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\110.png' width="80%" height="80%"/>
 
 越大的值理解为颜色越浅。本例计算出的边界比较宽，是因为原图片相对来说非常小。
 
@@ -1267,19 +1267,19 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 #### 1.3 更多边缘检测内容
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\111.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\111.png' width="80%" height="80%"/>
 
 使用相同的filter，可以在输出图像中区分源图像从亮到暗&从暗到亮这两种变化。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\112.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\112.png' width="80%" height="80%"/>
 
 不同的filter可以帮助我们找到垂直或水平的边缘。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\113.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\113.png' width="80%" height="80%"/>
 
 也有相关工作提出更robust的filter取值，同时也可以不手动定义filter，而把这些数字当成参数，通过反向传播学习更好的filter（之后的内容）。
 
@@ -1291,7 +1291,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 #### 1.4 Padding
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\114.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\114.png' width="80%" height="80%"/>
 
 使用 $f\times f$ 的卷积核，卷积 $n\times n$ 的源图像，得到 $(n-f+1)\times(n-f+1)$ 的新图象。
 
@@ -1311,7 +1311,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\115.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\115.png' width="80%" height="80%"/>
 
  关于padding多少：
 
@@ -1324,7 +1324,7 @@ $\hat{y},y$ 的维度都是 $(4, m) $。
 
 #### 1.5 卷积步长（Strided convolutions）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\116.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\116.png' width="80%" height="80%"/>
 
 padding p，stride s：
 
@@ -1334,7 +1334,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\117.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\117.png' width="80%" height="80%"/>
 
 数学中的convolution还要进行反转filter的操作，在机器学习中则不进行。机器学习的运算在数学中被称为cross-correlation，但在论文中我们延续convolution这一说法，要注意与数学环境中的convolution做区分。
 
@@ -1342,7 +1342,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 #### 1.6 三维卷积（Convolutions over volumes）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\118.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\118.png' width="80%" height="80%"/>
 
 源图像和filter的channel数量必须相同。最终得到一个二维输出。
 
@@ -1352,7 +1352,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\119.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\119.png' width="80%" height="80%"/>
 
 也可以使用多个filter。如图，将纵向边缘filter、横向边缘filter卷积而来的两张图片结合起来，得到 $4\times 4\times 2$ 的新图像。这种思想使我们可以检测很多个不同的特征，并且输出的通道数等于要检测的特征数，即filter的个数。
 
@@ -1360,7 +1360,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 #### 1.7 单层卷积网络
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\120.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\120.png' width="80%" height="80%"/>
 
 单层卷积网络的前向传播：
 
@@ -1374,7 +1374,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 参数数量：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\121.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\121.png' width="80%" height="80%"/>
 
 不管输入图片的尺寸有多大，参数的个数只跟filter有关。这是卷积神经网络的一个特性，可以避免过拟合。
 
@@ -1382,7 +1382,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 符号总结：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\122.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\122.png' width="80%" height="80%"/>
 
 每层输出图像的尺寸：
 
@@ -1414,7 +1414,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 预测 $39\times 39 \times 3$ 的图像上是否有一只猫，设计以下卷积神经网络：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\123.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\123.png' width="80%" height="80%"/>
 
 经过几步卷积后，获得 $7\times 7 \times 40$ 的特征图，将它们展开成 1960 长度的列向量，进行logistic或softmax回归，预测图片中是否有猫。
 
@@ -1442,7 +1442,7 @@ $$(n\times n) * (f\times f) \longrightarrow (\lfloor \frac{n+2p-f}{2} +1\rfloor)
 
 max pooling：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\124.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\124.png' width="80%" height="80%"/>
 
 - max pooling对每一个通道独立处理，不改变通道个数。
 
@@ -1454,7 +1454,7 @@ max pooling：
 
 average pooling：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\125.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\125.png' width="80%" height="80%"/>
 
 跟max pooling差不多。
 
@@ -1464,7 +1464,7 @@ average pooling：
 
 池化层的超参数：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\126.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\126.png' width="80%" height="80%"/>
 
 - 有常用的设置 $f=2,s=2$ ，意味着把图片长宽都缩小一半。
 - 可以自己增加padding参数 $p$，但极少这样做。（有意外，在下周讲）
@@ -1478,7 +1478,7 @@ average pooling：
 
 手写数字识别（跟 LeNet-5 相似）：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\127.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\127.png' width="80%" height="80%"/>
 
 有一种叫法是把 CONV+POOL 作为一层卷积，因为 POOL 层没有权重，只有超参数。在本例中同样将 CONV1+POOL1 作为 layer 1。
 
@@ -1504,7 +1504,7 @@ average pooling：
 
 卷积神经网络的一些细节：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\128.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\128.png' width="80%" height="80%"/>
 
 - 参数
   - 池化层没有任何参数。
@@ -1527,7 +1527,7 @@ average pooling：
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\129.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\129.png' width="80%" height="80%"/>
 
 卷积神经网络相比只有全连接的普通神经网络的优势：参数共享和稀疏连接。
 
@@ -1543,7 +1543,7 @@ average pooling：
 
 训练卷积神经网络的过程：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\130.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\130.png' width="80%" height="80%"/>
 
 通过梯度下降或其他优化算法，优化参数，让损失函数 $J$ 降到最低。
 
@@ -1567,13 +1567,13 @@ average pooling：
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\131.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\131.png' width="80%" height="80%"/>
 
 在LeNet提出时，使用的这些技术现在已经基本被取代了：sigmoid和tanh激活函数；平均池化；valid 卷积；受限于计算能力，卷积的计算方法也很复杂。现在用的是：ReLU；最大池化；same卷积。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\132.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\132.png' width="80%" height="80%"/>
 
 在AlexNet中，使用了ReLU、same卷积、max-pool、设置stride、softmax等新技术。
 
@@ -1583,7 +1583,7 @@ LeNet-5大约有60,000个参数；AlexNet有大约60,000,000个参数。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\133.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\133.png' width="80%" height="80%"/>
 
 VGG-16网络没有很多超参数，专注于构建卷积层。16的意思是网络中有16层有权值的地方（2+2+3+3+3=13卷积层，3全连接层）。
 
@@ -1596,7 +1596,7 @@ VGG-16 有约 138,000,000 个参数，但结构很规整，图像缩小的比例
 
 #### 2.3 残差网络（Residual Networks (ResNets)）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\134.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\134.png' width="80%" height="80%"/>
 
 很深的神经网络难以训练，因为存在梯度消失和梯度爆炸的问题。使用ResNet，可以训练北京深层的神经网络。
 
@@ -1606,7 +1606,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\135.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\135.png' width="80%" height="80%"/>
 
 论中将没有使用残差块的神经网络叫做Plain网络，在理论上层数越多，损失越小；但实际情况是，网络越深，在训练集上的误差会反弹。ResNet就会解决这一问题。
 
@@ -1614,7 +1614,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 #### 2.4 残差网络为什么有用？
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\136.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\136.png' width="80%" height="80%"/>
 
 如果让 $w,b$ 都为0，那么 $a^{[l+1]} = a{^{[l]}}$ ，学习恒等函数对残差块来说很简单。也就是说，虽然加上一个残差块（两层神经网络），效率也不逊色于更简单的神经网络。并且残差块添加的位置也不影响网络的表现。
 
@@ -1626,7 +1626,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\137.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\137.png' width="80%" height="80%"/>
 
 几个之前提到的细节：
 
@@ -1638,7 +1638,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 #### 2.5 网络中的网络 / 1×1卷积
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\138.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\138.png' width="80%" height="80%"/>
 
 1×1卷积添加了非线性函数，可以让网络学习更复杂的函数。
 
@@ -1648,7 +1648,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\139.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\139.png' width="80%" height="80%"/>
 
 作用如上图。POOL的作用是压缩 $n_H,n_W$，而 1×1 卷积可以压缩 $n_C$，减少信道数量来简化计算。当然让信道数量保持不变或者增加也可以。
 
@@ -1658,7 +1658,7 @@ $$a^{[l+2]} = g(z^{[l+2]}+a^{[l]})$$
 
 Inception模块：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\140.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\140.png' width="80%" height="80%"/>
 
 Inception：不需要人来决定使用什么规格的filter、是否使用POOL。网络结构更复杂但表现更好。
 
@@ -1672,7 +1672,7 @@ Inception网络不需要人为决定使用哪个fitler，或是否需要池化�
 
 巨大的运算量：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\141.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\141.png' width="80%" height="80%"/>
 
 Inception模块的问题是参数多，计算成本高。以 5×5卷积的一部分为例：需要 5×5×192 filter，对于输出的每个数都要做 filter 规格次数的乘法，也就是一共要做 $(28×28×32) * (5×5×192) ≈ 120 M$ 次乘法。
 
@@ -1680,7 +1680,7 @@ Inception模块的问题是参数多，计算成本高。以 5×5卷积的一部
 
 改进方法：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\142.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\142.png' width="80%" height="80%"/>
 
 使用 1×1 卷积得到相同规格的输出，通过压缩成较小的中间形态（瓶颈层bottleneck layer）。
 
@@ -1694,13 +1694,13 @@ Inception模块的问题是参数多，计算成本高。以 5×5卷积的一部
 
 Inception模块：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\143.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\143.png' width="80%" height="80%"/>
 
 
 
 Inception网络：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\144.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\144.png' width="80%" height="80%"/>
 
 红圈：由Inception模块重复堆叠而来，有些max-pooling层，来改变长和宽。
 
@@ -1728,7 +1728,7 @@ Inception网络：
 
 以猫咪分类问题为例，我们使用预训练的 ImageNet 模型，将最后分类改为 softmax 分类这是猫是Tigger，还是Misty，还是都不是。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\145.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\145.png' width="80%" height="80%"/>
 
 **图上**：把前面预训练的模型当作冻结的，**只训练跟我们的 softmax 层有关的参数**。
 
@@ -1754,9 +1754,9 @@ Inception网络：
 
 数据增强的方法：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\146.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\146.png' width="80%" height="80%"/>
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\147.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\147.png' width="80%" height="80%"/>
 
 - 镜像翻转、随即裁剪（保留主体）、旋转、剪切、局部弯曲 等。也可以组合起来用，但因为太复杂，实际上用的很少。
 - 色彩转换，进行RGB的调整，一般是根据某种概率分布来决定改变的值。
@@ -1764,7 +1764,7 @@ Inception网络：
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\148.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\148.png' width="80%" height="80%"/>
 
 如果数据集比较大，常用的方法是设置单个thread，串行读取数据、进行数据增强。
 
@@ -1782,7 +1782,7 @@ Inception网络：
 
 #### 2.11 计算机视觉现状
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\149.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\149.png' width="80%" height="80%"/>
 
 从数据少到数据多的应用场景：目标检测，图像识别，语音识别
 
@@ -1796,7 +1796,7 @@ Inception网络：
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\150.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\150.png' width="80%" height="80%"/>
 
 在benchmarks（基准测试）/竞赛上取得好的表现的方法：
 
@@ -1811,7 +1811,7 @@ Inception网络：
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\151.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\151.png' width="80%" height="80%"/>
 
 由于计算机视觉问题建立在小数据系统，其他人已经完成了大量的网络架构的手工工程；并且一个神经网络在一个视觉问题上很有效，通常也会解决其他视觉问题。
 
@@ -1837,7 +1837,7 @@ Inception网络：
 
 #### 3.1 目标定位（Object localization）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\152.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\152.png' width="80%" height="80%"/>
 
 detection问题中，图片可以包含多个对象，甚至是多个不同分类的对象。
 
@@ -1849,7 +1849,7 @@ classification 的思路可以帮助学习 classification with localization 问�
 
 classification with localization pipeline：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\153.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\153.png' width="80%" height="80%"/>
 
 图片输入ConvNet，输出一个4分类的softmax + 一个定位坐标。
 
@@ -1857,7 +1857,7 @@ classification with localization pipeline：
 
 标签 y 定义如下：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\154.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\154.png' width="80%" height="80%"/>
 
 假定图片中最多出现一个对象。输出 y ：
 
@@ -1875,7 +1875,7 @@ classification with localization pipeline：
 
 #### 3.2 特征点检测（Landmark detection）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\155.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\155.png' width="80%" height="80%"/>
 
 以面部识别为例，选定脸部特征点的个数，并生成包含这些特征点的标签训练集，就可以利用神经网络输出脸部特征点的位置。
 
@@ -1893,11 +1893,11 @@ classification with localization pipeline：
 
 step 1：训练一个ConvNet，输入切割好的图片，输出是否是一辆汽车，y=0或1.
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\156.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\156.png' width="80%" height="80%"/>
 
 step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把每个切片输入ConvNet进行识别。一次滑动结束后，使用更大的窗口重复上述操作。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\157.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\157.png' width="80%" height="80%"/>
 
 不管汽车在图片中的哪里，总有一个窗口能让汽车被识别出来。
 
@@ -1913,7 +1913,7 @@ step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把�
 
 首先知道怎样把全连接层转换成卷积层：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\158.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\158.png' width="80%" height="80%"/>
 
 - 为了代替将 5×5×16 展开成 400 维的全连接层：进行 400 个 5×5×16 卷积核的卷积，得到 1×1×400 的输出层。 1×1×400 的输出是上一层  5×5×16 激活值经过某个线性函数的输出结果。
 
@@ -1924,7 +1924,7 @@ step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把�
 
 滑动窗口的卷积实现：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\159.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\159.png' width="80%" height="80%"/>
 
 我们有一个 14×14×3 作为输入的ConvNet。如果在 16×16×3 的大图像做滑动窗口，会划分为四部分、进行四次卷积。结果发现，这四次卷积操作中的很多计算都是重复的。
 
@@ -1938,7 +1938,7 @@ step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把�
 
 总结：对大图直接进行卷积，一次得到所有预测值。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\160.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\160.png' width="80%" height="80%"/>
 
 这个算法效率高，但仍然存在一个缺点：边界框的位置可能不够准确，由于步长的存在，滑动窗口可能不能很好的框选住物体。在下节解决这个问题。
 
@@ -1952,7 +1952,7 @@ step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把�
 
 更精准的边界框预测算法：YOLO算法。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\161.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\161.png' width="80%" height="80%"/>
 
 把图片分成若干格，对每一格应用之前讲过的 classification with localization 算法。对于里面有车的格子，预测出绿色、黄色的标签；对于其他格子，预测出来紫色的标签。**每个单元格负责预测中点位于该格子内的物体和物体的边界框。**
 
@@ -1972,7 +1972,7 @@ step 2：选定一个特定大小的窗口，将窗口在图片中滑动，把�
 
 表示 bounding box 的约定：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\162.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\162.png' width="80%" height="80%"/>
 
 bx, by, bh, bw 单位是相对格子尺度的比例。
 
@@ -1989,7 +1989,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 如何判断 object detection 算法运作良好？定义IoU的概念。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\163.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\163.png' width="80%" height="80%"/>
 
 实际的 bounding box 是红色，我们预测的是紫色。IoU 计算它们交集（intersection）和并集（union）的比值，并跟一个阈值进行对比。
 
@@ -1997,7 +1997,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 #### 3.7 非极大值抑制（Non-max suppression）
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\164.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\164.png' width="80%" height="80%"/>
 
 分格子进行检测后，不仅中心点的格子会认为自己含有某个物体，周围的格子也会认为自己检测出了这个物体。导致很多格子的 P_c 值会比较高（图中的数字）。导致对同一个对象做出多次检测。
 
@@ -2009,7 +2009,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 算法步骤：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\165.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\165.png' width="80%" height="80%"/>
 
 
 
@@ -2019,13 +2019,13 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 方法：设置几个anchor box。以两个为例：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\166.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\166.png' width="80%" height="80%"/>
 
 如果有两个anchor box，标签变为16维，输出从 3×3×8 变为 3×3×16。
 
 文字描述：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\167.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\167.png' width="80%" height="80%"/>
 
 检测到的物体，寻找跟哪个 anchor box 的交并比更高，然后填入 $y$ 相应的位置。
 
@@ -2033,7 +2033,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 一个具体例子：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\168.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\168.png' width="80%" height="80%"/>
 
 如果指定 anchor box 1 大约是行人形状，anchor box 2 大约是汽车形状，同时有人和车、只有车的 $y$ 如图右侧所示。
 
@@ -2060,19 +2060,19 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 **训练模型**：训练一个卷积神经网络，输入图片，输出相应的标签 $y$。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\169.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\169.png' width="80%" height="80%"/>
 
 
 
 **进行预测**：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\170.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\170.png' width="80%" height="80%"/>
 
 
 
 **进行非最大值抑制**：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\171.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\171.png' width="80%" height="80%"/>
 
 - 对于每个格子，都有两个 anchor box 预测的结果。有些 bounding box可以超出所在格子的宽高。  
 
@@ -2085,7 +2085,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 在目标检测领域论文中的常见算法，在少数窗口上运行CNN分类器。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\172.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\172.png' width="80%" height="80%"/>
 
 有些滑动窗口并没有进行识别的价值。因此 R-CNN 算法尝试选出一些区域，在这些区域上运行CNN分类器是有意义的。
 
@@ -2093,7 +2093,7 @@ bx, by, bh, bw 单位是相对格子尺度的比例。
 
 
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\173.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\173.png' width="80%" height="80%"/>
 
 可以看出，R-CNN运行比较慢。
 
@@ -2123,7 +2123,7 @@ Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区�
 
 一些术语：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\174.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\174.png' width="80%" height="80%"/>
 
 - 人脸验证（verification）：输入图片和身份，验证图片和身份是否对应。一对一。
 
@@ -2137,7 +2137,7 @@ Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区�
 
 需要通过单张图片或单个人脸样例，就可以识别这个人的身份。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\175.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\175.png' width="80%" height="80%"/>
 
 如果使用图中画出的结构，训练CNN进行softmax识别，那么如果新加入一个人，就要修改输出数量并且重新训练CNN。
 
@@ -2147,7 +2147,7 @@ Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区�
 
 具体来说：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\176.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\176.png' width="80%" height="80%"/>
 
 不训练CNN，而是学习similarity函数 $d(img1,1mg2)$ 。这个函数输入两张图片，输出差异值。
 
@@ -2163,7 +2163,7 @@ Faster R-CNN：使用CNN而不是传统图像分割算法，来获得候选区�
 
 实现的一个方式就是用 Siamese 网络，思路是：**对于不同的输入运行相同的CNN，然后比较它们的输出**。
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\177.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\177.png' width="80%" height="80%"/>
 
 有一个网络，输入一张图片，可以得到一个128维的向量。如果把两张图片 $x^{(1)},x^{(2)}$ 输入同样的网络，可以得到输出向量 $f(x^{(1)}),f(x^{(2)})$ 。
 
@@ -2175,7 +2175,7 @@ $$d(x^{(1)},x^{(2)})=||f(x^{(1)})-f(x^{(2)})||^2_2$$
 
 从训练层面上：
 
-<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\178.png' width="80%" height="80%"/>
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\178.png' width="80%" height="80%"/>
 
 训练神经网络参数，目标是：相同人物的图片，输出相似；不同任务的图片，输出相差较大。
 
@@ -2185,85 +2185,211 @@ $$d(x^{(1)},x^{(2)})=||f(x^{(1)})-f(x^{(2)})||^2_2$$
 
 #### 4.4 Triplet 损失
 
+想让神经网络学习到比较好的图片编码，方法之一是定义三元组损失函数（triplet loss），然后应用梯度下降。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\179.png' width="80%" height="80%"/>
+
+同时看三张图片：样本图片Anchor、同样身份的图片Positive、不同身份的图片Negative。
+
+我们想要：
+
+$$||f(A)-f(P)||^2 - ||f(A)-f(N)||^2 ≤ 0   $$ 
+
+为了确保不学习到全为0，来满足方程的编码方式：设置超参数 $\alpha$ ，作为margin。
+
+$$||f(A)-f(P)||^2 - ||f(A)-f(N)||^2 + \alpha ≤ 0   $$ 
+
+也就是要求**不同身份的编码差异度要比相同身份的编码差异度大很多**。
 
 
 
+triplet loss 定义如下：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\180.png' width="80%" height="80%"/>
+
+$$L(A,P,N) = max(||f(A)-f(P)||^2 - ||f(A)-f(N)||^2 + \alpha ,0   )$$ 
+
+$$J=\sum^m_{i=1}L(A^{(i)},P^{(i)},N^{(i)}) $$ 
+
+使用max函数，达到让第一项小于等于0的效果，而且不关心比0小多少。
 
 
+
+注意：为了定义三元组的数据集，需要成对的A、P，也就是**需要同一个人的多张照片**。这也是图中举例的数据集，1k人有10k图片的原因。在训练结束后，就达到了one-shot的目的，可以**给某个人的一张照片进行识别**。
+
+
+
+数据集的问题：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\181.png' width="80%" height="80%"/>
+
+如果随机选择A、P、N，那么约束条件 $d(A,p)+\alpha ≤ d(A,N)$ 很容易满足，因为随机选择的图片 A和P 的差异比 A和N 的差异小很多。网络并不能从中学习到什么。
+
+我们需要**尽可能选择“难以识别”的三元组，组合成数据集**。
+
+
+
+总览：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\182.png' width="80%" height="80%"/>
+
+制作三元组数据集，使用三元组loss，让模型输出一个图片的编码。
+
+
+
+其他：如今已经有很多公司使用特别多的数据、训练了大型的模型，并开源了模型参数。所以相比于从头开始，可以下载别人的预训练模型。同时也要了解这些模型的训练方法。在下一节讲Siamese的变体，以及如何训练这些模型。
 
 
 
 #### 4.5 面部验证与二分类（Face verification and binary classification）
 
+除了triplet loss，也可以把verification当作一个二分类问题。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\183.png' width="80%" height="80%"/>
+
+使用siamese的架构，两张图片分别计算编码，然后输入一个逻辑回归单元，进行预测，相同的身份输出1，不同的身份输出0。
+
+注意：
+
+- siamese架构，上下两个网络是相同的。
+- 输入是两张图片，输出一个0或1。
+- 假设上面是每次要识别的新图片，下面是数据集的图片，可以把数据集图片的编码都保存下来，不需要每次都经过网络，也不需要保存原图片。
 
 
 
+总览：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\184.png' width="80%" height="80%"/>
+
+创建二元组数据集。
 
 
 
+#### 4.6 什么是神经风格迁移？（neural style transfer）
 
+把 Style 迁移到 Content 上。
 
-#### 4.6 什么是神经风格转换？（What is neural style transfer?）
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\185.png' width="80%" height="80%"/>
 
-
-
-
-
-
-
-
-
-#### 4.7 什么是深度卷积网络？（What are deep ConvNets learning?）
+要完成这个任务，需要组合不同深度、不同层的卷积神经网络的中间值。
 
 
 
+#### 4.7 深度卷积网络在学习什么？
+
+直观理解：卷积网络中深度较大的层在做什么。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\186.png' width="80%" height="80%"/>
+
+可视化 Layer 1 的9个最大程度激活的隐藏units。可以看到，每个units在理解一些比较简单的信息，比如颜色、边缘。
+
+随着层数加大，网络理解一些高维、完整的特征。
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\187.png' width="80%" height="80%"/>
+
+可以联想“感受野”的概念。
 
 
 
+#### 4.8 代价函数
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\188.png' width="80%" height="80%"/>
+
+$$J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S,G)  $$  
 
 
 
-#### 4.8 代价函数（Cost function）
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\189.png' width="80%" height="80%"/>
+
+获得生成图片G的步骤：
+
+- 随机初始化G
+
+- 梯度下降，在最小化损失函数的过程中更新G
 
 
 
+#### 4.9 内容代价函数
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\190.png' width="80%" height="80%"/>
+
+用预训练卷积神经网络的隐藏层 $l$ 来计算内容损失，通常选择 $l$ 在网络的中间层，不太浅也不太深。
+
+就像本章前面所讲，我们用这张图片的编码来计算内容损失。
+
+$$J_{content}(C,G) = \frac{1}{2}||a^{[l](C)}- a^{[l](G)}||^2  $$
 
 
 
+#### 4.10 风格代价函数
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\191.png' width="80%" height="80%"/>
+
+把图片的风格定义为：$l$ 层中各个通道之间激活项的相关性系数。
+
+如何计算这个系数？
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\192.png' width="80%" height="80%"/>
+
+比如我们有红色、黄色两个channel的激活值，如上图左下方所示，红色channel学习垂直纹理，黄色channel学习橘红色，什么时候两个通道有较高的相关性呢？
+
+- 图片中出现垂直纹理的地方，有很大概率是橘红色的，就说这两个channel有相关性。
+- 图片中有垂直纹理的地方，很小概率是橘红色的，就说这两个channel没有相关性。
+
+相关系数度量的就是这个概率。
+
+在生成图像G中，测量channel之间的相关系数，与S的相关系数做对比。这样就能测量生成图像G的风格和输入图像S的相似程度了。
 
 
 
-#### 4.9 内容代价函数（Content cost function）
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\193.png' width="80%" height="80%"/>
+
+对于G和S，分别计算一个风格矩阵。
+
+- 用第 $l$ 层来测量风格，$a^{[l]}_{i,j,k} $ 是 $l$ 层中 $(i,j,k)$ 位置的激活值。$i,j,k$ 分别是高度、宽度、channel。
+- $G^{[l](S)} $ 是第 $l$ 层的风格矩阵，规格是 $n_c^{[l]} \times n_c^{[l]}$。
+  - $S$ 的风格矩阵：$G_{kk'}^{[l](S)}=\sum^{n^{[l]}_H}_{i=1}\sum^{n^{[l]}_W}_{j=1}a_{ijk}^{[l](S)}a_{ijk'}^{[l](S)}  $ 
+  - $G$ 的风格矩阵：$G_{kk'}^{[l](G)}=\sum^{n^{[l]}_H}_{i=1}\sum^{n^{[l]}_W}_{j=1}a_{ijk}^{[l](G)}a_{ijk'}^{[l](G)}  $ 
+  - 用 $G$ 这个字母来表示是因为在线性代数中这也叫 “gram matrix”
+  - 做的事情：遍历图中各个高度和宽度，将 $k$ 和 $k'$ 通道中对应位置的激活项相乘并求和。如果两个通道对应的激活值 $a$ 相关，$G$ 就大。
 
 
 
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\194.png' width="80%" height="80%"/>
+
+最终的风格损失函数：
+
+$$ J_{style}^{[l]}(S,G) = ||G^{[l](S)} - G^{[l](G)}  ||^2_F    $$
+
+也可以定义神经网络所有层的风格损失函数：
+
+$$ J_{style}(S,G)=\sum _l \lambda^{[l]} J_{style}^{[l]}(S,G)   $$
 
 
 
+#### 4.11 图像的一维和三维扩展
+
+从2D图像到1D心电图：
+
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\195.png' width="80%" height="80%"/>
+
+用一个 1×5 filter 卷积 1×14 原数据，得到 1×10 的输出。
+
+多通道filters同理。用32个 5×16 filter 卷积 10×16 原数据，得到 6×32 的输出。
+
+当然也有RNN等专门处理序列化数据的网络。
 
 
 
-#### 4.10 风格代价函数（Style cost function）
+3D数据举例：
 
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\196.png' width="80%" height="80%"/>
 
+CT扫描，若干的切片。
 
+3D数据的卷积如下：
 
-
-
-
-
-
-#### 4.11 一维到三维推广（1D and 3D generalizations of models）
-
-
-
-
-
-
-
-
-
-
+<img src='G:\github-repos\MyPostImage\ml-notes-img\nndl\197.png' width="80%" height="80%"/>
 
 
 
