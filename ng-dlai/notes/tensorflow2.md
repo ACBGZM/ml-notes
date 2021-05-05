@@ -708,4 +708,319 @@ plt.show()
 
 `predict(输入特征, batch_size=)` 返回前向传播计算结果。
 
+分以下几步：
 
+- 复现模型的前向传播Sequential
+- 加载模型参数
+- 进行预测
+
+
+
+附手写数字识别任务的代码：
+
+**A. 模型训练和保存**
+
+```python
+import tensorflow as tf
+import os
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+mnist = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0  # 把[0, 255]变为[0, 1]，输入特征值小更易于神经网络吸收
+
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+              metrics=['sparse_categorical_accuracy'])
+
+# 查看有没有可以加载的模型
+checkpoint_save_path = "./checkpoint/mnist.ckpt"
+if os.path.exists(checkpoint_save_path + '.index'):
+    print('-------------load the model-----------------')
+    model.load_weights(checkpoint_save_path)
+
+cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_save_path,
+                                                 save_weights_only=True,
+                                                 save_best_only=True)
+
+
+history = model.fit(x_train, y_train, batch_size=32, epochs=20,
+          validation_data=(x_test, y_test), validation_freq=1,
+          callbacks=[cp_callback])  # 通过调用回调函数，保存模型
+
+model.summary()
+
+
+# 参数写入txt
+print(model.trainable_variables)
+file = open('./weights.txt', 'w')
+for v in model.trainable_variables:
+    file.write(str(v.name) + '\n')
+    file.write(str(v.shape) + '\n')
+    file.write(str(v.numpy()) + '\n')
+file.close()
+
+
+# acc/loss可视化
+acc = history.history['sparse_categorical_accuracy']
+val_acc = history.history['val_sparse_categorical_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+plt.subplot(1, 2, 1)
+plt.plot(acc, label='Training Accuracy')
+plt.plot(val_acc, label='Validation Accuracy')
+plt.title('Training and Validation Accuracy')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(loss, label='Training Loss')
+plt.plot(val_loss, label='Validation Loss')
+plt.title('Training and Validation Loss')
+plt.legend()
+plt.show()
+```
+
+
+
+**B. 模型加载和预测**
+
+```python
+from PIL import Image
+import numpy as np
+import tensorflow as tf
+
+model_save_path = './checkpoint/mnist.ckpt'
+
+# 复现前向传播
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')])
+
+# 加载模型
+model.load_weights(model_save_path)
+
+
+preNum = int(input("执行几次识别任务:"))
+
+for i in range(preNum):
+    image_path = input("图片文件名:")
+    img = Image.open(image_path)
+    img = img.resize((28, 28), Image.ANTIALIAS)  # 转化为28*28
+    img_arr = np.array(img.convert('L'))  # 转化为灰度图片
+
+    # 白底黑字，转换成黑底白字，并降噪
+    # img_arr = 255 - img_arr
+    for i in range(28):
+        for j in range(28):
+            if img_arr[i][j] < 200:
+                img_arr[i][j] = 255
+            else:
+                img_arr[i][j] = 0
+
+    img_arr = img_arr / 255.0  # 归一化
+
+    # 神经网络训练时，都是按照batch送入网络，所以给img_arr前面添加一个维度
+    # img_arr:(28, 28)
+    # x_predict:(1, 28, 28)
+    x_predict = img_arr[tf.newaxis, ...]
+
+    result = model.predict(x_predict)   # 前向传播
+    pred = tf.argmax(result, axis=1)    # 输出最大概率值的索引
+    print('\n')
+    tf.print("预测数字：", pred, "\n")
+```
+
+
+
+
+
+### 5 卷积神经网络
+
+实际问题中，图片尺寸大、通道多，直接输入全连接层不现实，需要进行特征的提取，再输入到全连接层。卷积计算是提取特征的常用、有效的方法。
+
+#### 5.1 卷积概念
+
+##### 卷积计算
+
+输入特征图的channel数决定了卷积核的channel数；卷积核的个数决定输出特征图的channel数。
+
+如果觉得某层特征提取能力差，可以在这一层多用几个卷积核。
+
+可以根据下图记住参数的个数。每个格子是一个w，每个卷积核有一个b。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\tf3.png'  width="80%" height="80%"/>
+
+当卷积核是多channel的，也是执行全部相乘、求和的计算过程。
+
+当有多个卷积核，把每个卷积核得到的特征图叠加起来，形成多channel的输出特征图。
+
+
+
+##### 感受野
+
+感受野的概念如图：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\tf4.png'  width="80%" height="80%"/>
+
+用两层 3\*3 卷积核，和一层 5\*5 卷积核，最终得到的单个输出像素的感受野都是 5，我们说**这两种卷积方法的特征提取能力是一样的**。
+
+此时，考虑它们的带训练参数个数和计算量，在不同的卷积方法中进行选择：
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\tf5.png'  width="80%" height="80%"/>
+
+这也是现在神经网络经常使用两层 3\*3 卷积核替换一层 5\*5 卷积核的原因。
+
+
+
+#### 5.2 tensorflow卷积层的实现
+
+##### A. padading-全零填充
+
+全零填充在输入图片周围补0，使卷积计算的输出保持跟输入相同的尺寸。
+
+- `padding='SAME'`：使用全零填充
+
+- `padding='VALID'`：不使用全零填充
+
+
+
+##### B. Conv2D-描述卷积层
+
+```python
+tf.keras.layers.Conv2D(
+    filters=卷积核个数
+    kernel_size=卷积核尺寸, 
+    strides=滑动步长, 
+    padding="same" or "valid", 
+    activation="relu" or "softmax" or "tanh" or "sigmoid",  # 如果有BN，此处不写
+    input_shape=(高, 宽, 通道数) # 输入特征图的维度，可以省略
+)
+```
+
+kernel_size、strides等，如果横纵相同，就写一个长整数；否则写 `(纵向, 横向)` 
+
+卷积层三种不同的传参方法：
+
+```python
+model = tf.keras.models.Sequential([
+    Conv2D(6, 5, padding='valid', activation='sigmoid'), 
+    MaxPool2D(2, 2), 
+    
+    Conv2D(6, (5, 5), padding='valid', activation='sigmoid')
+    MaxPool2D(2, (2, 2)), 
+    
+	Conv2D(filters=6, kernel_size=(5, 5), padding='valid', activation='sigmoid')
+    MaxPool2D(pool_size=(2, 2), strides=2), 
+    
+    Flatten(), 
+    Dense(10, activation='softmax')
+])
+```
+
+
+
+##### C. BN-批标准化
+
+神经网络对0附近的数据更敏感，梯度更大。
+
+- 标准化：使数据符合0均值，1标准差的分布
+- 批标准化：对一batch的数据做标准化处理
+
+$$ {H_i^k}^\prime  = \frac{H_i^k - \mu^k_{batch}}{\sigma^k_{batch}} $$
+
+**BN常用在卷积操作和激活操作之间。** 
+
+均值、标准差都是针对第 k 个卷积核生成的 batch 张（同channel）图中的所有像素点。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\tf6.png'  width="80%" height="80%"/>
+
+这种简单的标准化，使输入数据集中在激活函数的线性区域。
+
+因此在BN操作中，为每个像素 $H$ 引入**两个可训练参数**，缩放因子 $\gamma$ 和偏移因子 $\beta$，标准正态分布后的输入数据通过这两个因子，优化了特征数据分布的宽窄、偏移量（如图），**保证了网络的非线性表达力**。
+
+<img src='C:\Users\acbgzm\Documents\GitHub\MyPostImage\ml-notes-img\nndl\tf7.png'  width="80%" height="80%"/>
+
+```python
+model = tf.keras.models.Sequential([
+	Conv2D(fitlers=6, kernel_size=(5, 5), padding='same'), 
+	BatchNormalization(), 
+	Activation('relu'), 
+	MaxPool2D(pool_size=(2, 2), strides=2, padding='same'), 
+	Dropout(0.2)
+])
+```
+
+
+
+##### D. Pooling-池化
+
+用于减少特征的数量。
+
+- 最大池化：提取图片纹理
+- 均值池化：保留背景特征
+
+```python
+tf.keras.layers.MaxPool2D(
+	pool_size=池化核尺寸, 
+    strides=池化步长,  # 默认跟 pool_size 相等
+    padding='valid' or 'same' # 是否使用全零填充的池化，不改变原图片的尺寸
+)
+tf.keras.layers.AveragePooling2D(
+	pool_size=池化核尺寸, 
+    strides=池化步长, 
+    padding='valid' or 'same' 
+)
+```
+
+例子见之前的代码。 
+
+
+
+##### E. Dropout-舍弃
+
+为了防止过拟合，按照一定概率，把一部分神经元从社交网络中暂时舍弃。使用神经网络时，被舍弃的神经元恢复连接。
+
+`tf.keras.layers.Dropout(舍弃概率)` 
+
+例子见之前的代码。 
+
+
+
+##### 总结
+
+卷积神经网络：借助卷积核提取特征，然后送入全连接网络。
+
+特征提取分四步：
+
+- Conv2D
+- BN
+- Activation
+- Pooling
+
+Q：卷积是什么？
+
+A：卷积就是特征提取器，就是CBAPD。
+
+```python
+model = tf.keras.models.Sequential([
+	Conv2D(fitlers=6, kernel_size=(5, 5), padding='same'), 
+	BatchNormalization(), 
+	Activation('relu'), 
+	MaxPool2D(pool_size=(2, 2), strides=2, padding='same'), 
+	Dropout(0.2)
+])
+```
+
+
+
+#### 5.3 
