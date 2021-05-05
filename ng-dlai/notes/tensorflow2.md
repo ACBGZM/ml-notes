@@ -2,7 +2,9 @@
 
 整理自北大曹建老师网课，见[此处](https://www.bilibili.com/video/BV1B7411L7Qt)
 
-### 张量 Tensor
+### 1  基本概念
+
+#### 1.1 张量 Tensor
 
 Tensor：多维数组（列表）。阶：张量的维数。
 
@@ -32,7 +34,7 @@ Tensor：多维数组（列表）。阶：张量的维数。
 
 
 
-### 常用函数
+#### 1.2 常用函数
 
 - `tf.cast(原张量名, dtype=数据类型)` ，强制类型转换
 
@@ -133,6 +135,8 @@ Tensor：多维数组（列表）。阶：张量的维数。
     `<tf.Variable 'Variable:0' shape=() dtype=int32, numpy=3>`
 
 - `tf.argmax(张量名, axis=操作轴)`，返回张量沿指定维度最大值的索引
+
+
 
 
 
@@ -346,5 +350,362 @@ Adam：同时结合SGDM一阶动量和RMSProp二阶动量
 
 
 
+### 3 神经网络搭建八股
+
+#### 3.1 使用Sequential搭建神经网络
+
+tf.keras搭建神经网络六步法（使用Sequential）：
+
+1. import
+
+2. train, test：划分数据集
+
+3. model = tf.keras.models.Sequential：逐层描述网络结构，前向传播
+
+4. model.compile：配置训练方法，选择优化器、损失函数、评测指标
+
+5. model.fit：执行训练过程
+
+6. model.summary：打印网络的结构和参数统计
+
+##### Sequential
+
+`model = tf.keras.models.Sequential([网络结构])` 
+
+- 拉直层：`tf.keras.layers.Flatten()` 
+- 全连接层：`tf.keras.layers.Dense(神经元个数, activation="激活函数", kernel_regularizer=哪种正则化)` 
+  - 激活函数：`relu`, `softmax`, `sigmoid`, `tanh` 
+  - 正则化：`tf.keras.regularizers.l1()`, `tf.keras.regularizers.l2()`
+- 卷积层：`tf.keras.layers.Conv2D(fitlers=卷积核个数, kernel_size=卷积核尺寸, strides=步长, padding="valid" or "same") `
+- LSTM层：`tf.keras.layers.LSTM()` 
+
+##### compile
+
+`model.compile(optimizer=优化器, loss=损失函数, metrics=["准确率"])` 
+
+- optimizer 可选：
+  - `'sgd'` or `tf.keras.optimizers.SGD(lr=学习率, momentum=动量)` 
+  - `'adagrad'` or `tf.keras.optimizers.Adagrad(lr=学习率)` 
+  - `'adadelta'` or `tf.keras.optimizers.Adadelta(lr=学习率)` 
+  - `'adam'` or `tf.keras.optimizers.Adam(lr=学习率, beta_1=0.9, beta_2=0.999)` 
+- loss 可选： 
+  - `'mse'` or `tf.keras.losses.MeanSquaredError()` 
+  - `'sparse_categorical_crossentropy'` or `tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False)` ，神经网络预测前没有经过概率分布则是True，经过概率分布就是False 
+- metrics 可选：
+  - `accuracy`：y_ 和 y 都是数值，如 y_=[1]  y=[1]
+  - `categorical_accuracy`：y_ 和 y 都是独热码，如 y_=[0, 1, 0]  y=[0.256, 0.695, 0.048]
+  - `sparse_categorical_accuracy`：y_ 是数值，y 是独热码，如 y_=[1]  y=[0.256, 0.695, 0.048]
+
+##### fit
+
+```python
+model.fit(训练集特征, 训练集标签, 
+batch_size=, epochs=, 
+validation_data=(测试集特征, 测试集标签) or validation_split=从训练集划分多少比例给测试集, validation_freq=多少epoch测试一次)
+```
+
+##### summary
+
+`model.summary()`
+
+##### 举例：鸢尾花识别
+
+```python
+# 1. import
+import tensorflow as tf
+from sklearn import datasets
+import numpy as np
+
+# 2. train, test
+x_train = datasets.load_iris().data
+y_train = datasets.load_iris().target
+
+np.random.seed(116)
+np.random.shuffle(x_train)
+np.random.seed(116)
+np.random.shuffle(y_train)
+tf.random.set_seed(116)
+
+# 3. Sequential
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(3, activation='softmax', kernel_regularizer=tf.keras.regularizers.l2())
+])
+
+# 4. compile
+model.compile(optimizer=tf.keras.optimizers.SGD(lr=0.1), 
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), 
+              metrics=['sparse_categorical_accuracy'])
+
+# 5. fit
+model.fit(x_train, y_train, batch_size=32, epochs=500, validation_split=0.2, validation_freq=20)
+
+# 6. summary
+model.summary()
+```
+
+
+
+#### 3.2  使用class搭建神经网络
+
+Sequential支持搭建上层输入是下层输出的神经网络，如果有跳连，可以用class搭建。
+
+tf.keras搭建神经网络六步法（使用class）：
+
+1. import
+
+2. train, test
+
+3. **class MyModel(Model) model=MyModel**
+
+4. model.compile
+
+5. model.fit
+
+6. model.summary
+
+```python
+class MyModel(Model):
+	def __init__(self):
+		super(MyModel, self).__init__()
+		定义网络结构块
+    def call(self, x):
+    	调用网络结构块，实现前向传播
+    	return y
+model = MyModel()
+```
+
+以鸢尾花分类的网络为例：
+
+ ```python
+# 1. import
+import tensorflow as tf
+from tensorflow.keras.layers import Dense
+from tensorflow.keras import Model
+from sklearn import datasets
+import numpy as np
+
+# 2. train, test
+x_train = datasets.load_iris().data
+y_train = datasets.load_iris().target
+
+np.random.seed(116)
+np.random.shuffle(x_train)
+np.random.seed(116)
+np.random.shuffle(y_train)
+tf.random.set_seed(116)
+
+# 3. class
+class IrisModel(Model):
+	def __init__(self):
+		super(IrisModel, self).__init__()
+		self.d1 = Dense(3, activation='sigmoid', kernel_regularizer=tf.keras.regularizers.l2())
+        
+    def call(self, x):
+    	y = self.d1(x)
+    	return y
+    
+model = IrisModel()
+
+# 4. compile
+model.compile(optimizer=tf.keras.optimizers.SGD(lr=0.1), 
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), 
+              metrics=['sparse_categorical_accuracy'])
+
+# 5. fit
+model.fit(x_train, y_train, batch_size=32, epochs=500, validation_split=0.2, validation_freq=20)
+
+# 6. summary
+model.summary()
+ ```
+
+
+
+#### 3.3 MNIST 数据集
+
+MNIST数据集有 7 万张 28*28 像素的手写数字，其中 6 万张用于训练，1 万张用于测试。
+
+##### Sequential
+
+```python
+import tensorflow as tf
+
+mnist = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0  # 把[0, 255]变为[0, 1]，输入特征值小更易于神经网络吸收
+
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(), 
+    tf.keras.layers.Dense(128, activation='relu'), 
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', 
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), 
+              metrics=['sparse_categorical_accuracy'])
+
+model.fit(x_train, y_train, batch_size=32, epochs=5, validation_data=(x_test, y_test), validation_freq=1)
+model.summary()
+```
+
+##### class
+
+```python
+import tensorflow as tf
+from tensorflow.keras.layers import Dense, Flatten
+from tensorflow.keras import Model
+
+mnist = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+class MnistModel(Model):
+    def __init__(self):
+        super(MnistModel, self).__init__()
+        self.flatten = Flatten()
+        self.d1 = Dense(128, activation='relu')
+        self.d2 = Dense(10, activation='softmax')
+        
+	def call(self, x):
+        x = self.flatten(x)
+        x = self.d1(x)
+        y = self.d2(x)
+        return y
+
+model = MnistModel()
+
+model.compile(optimizer='adam', 
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), 
+              metrics=['sparse_categorical_accuracy'])
+
+model.fit(x_train, y_train, batch_size=32, epochs=5, validation_data=(x_test, y_test), validation_freq=1)
+model.summary()
+```
+
+
+
+
+
+### 4 八股扩展
+
+自制数据集、数据增强、断点续训（实时存取模型）、参数提取（把参数存入文本）、acc/loss可视化、应用程序。
+
+#### 4.1 自制数据集
+
+读写文件、建立数据集的操作，详见代码。
+
+#### 4.2 数据增强
+
+```python
+image_gen_train = ImageDataGenerator(
+	rescale = 所有数据将乘以该值, 
+    rotation_range = 随机旋转角度, 
+    width_shift_range = 随机宽度偏移量, 
+    height_shift_range = 随机高度偏移量, 
+    horizontal_flip = 是否随机水平翻转, 
+    zoom_range = 随即缩放 
+)
+image_gen_train.fit(x_train)
+```
+
+x_train要求是四维数据，需要进行reshape，最后一个是通道数量：`x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)` 
+
+model.fit步骤变为：`model.fit(image_gen_train.flow(x_train, y_train, batch_size=32))` 
+
+数据增强的效果需要在实际应用程序中体会。
+
+
+
+#### 4.3 断点续训
+
+##### 读取模型
+
+`load_weights(路径) `
+
+保存模型时，会自动生成.index索引表文件。如果路径中已经有保存好的模型，就直接加载模型参数：
+
+```python
+checkpoint_save_path = "./checkpoint/mnist.ckpt"
+if os.path.exists(checkpoint_save_path + '.index'):
+	print('---load the model---')
+	model.load_weights(checkpoint_save_path)
+```
+
+##### 保存模型
+
+```python
+cp_callback = tf.keras.callbacks.ModelCheckpoint(
+    filepath=checkpoint_save_path, # 文件存储路径
+    save_weights_only=True, # 是否只保留模型参数
+    save_best_only=True)	# 是否只保留最优结果
+
+history = model.fit(x_train, y_train, batch_size=32, epochs=5, 
+                   	validation_data=(x_data, y_test), validation_freq=1, 
+                    callbacks=[cp_callback])
+# 模型训练时加入 callbacks 选项，记录到 history 中
+```
+
+
+
+#### 4.4 参数提取
+
+`model.trainable_variables` 返回模型中可训练参数。
+
+`np.set_printoptions(threshold=超过多少省略显示)` 
+
+```python
+print(model.trainable_variables)
+file = open('./weights.txt', 'w')
+for v in model.trainable_variables:
+    file.write(str(v.name) + '\n')
+    file.write(str(v.shape) + '\n')
+    file.write(str(v.numpy()) + '\n')
+file.close()
+```
+
+
+
+#### 4.5 acc/loss 曲线
+
+在 model.fit 执行训练过程的同时，同步记录了：
+
+- 训练集loss：`loss ` 
+- 测试集loss：`val_loss ` 
+- 训练集准确率：`sparse_categorical_accuracy ` 
+- 测试集准确率：`val_sparse_categorical_accuracy` 
+
+可用 history.history 提取出来。
+
+```python
+history = model.fit(x_train, y_train, batch_size=32, epochs=5, 
+                   	validation_data=(x_data, y_test), validation_freq=1, 
+                    callbacks=[cp_callback])
+```
+
+```python
+acc = history.history['sparse_categorical_accuracy']
+val_acc = history.history['val_sparse_categorical_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+plt.subplot(1, 2, 1)
+plt.plot(acc, label='Training Accuracy')
+plt.plot(val_acc, label='Validation Accuracy')
+plt.title('Training and Validation Accuracy')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(loss, label='Training Loss')
+plt.plot(val_loss, label='Validation Loss')
+plt.title('Training and Validation Loss')
+plt.legend()
+plt.show()
+```
+
+
+
+#### 4.6 模型应用程序
+
+
+`predict(输入特征, batch_size=)` 返回前向传播计算结果。
 
 
